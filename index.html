@@ -6,9 +6,10 @@ title: Home
 <ul class="blogList">
   {% for post in site.posts %}
     <li class="blogItem">
-      <a class="blogLink" href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
-      <p><em>{{ post.description }}</em></p>
-      <p class="date">{{ post.mydate }}</p>
+      <a class="blogLink" href="{{ post.url }}">{{ post.title }}</a>
+      <div><em>{{ post.description }}</em></div>
+      <div class="date">{{ post.mydate }}</div>
     </li>
+    <p>&nbsp;</p>
   {% endfor %}
 </ul>

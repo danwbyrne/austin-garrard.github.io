@@ -1,8 +1,17 @@
 {% include head.html %}
 	
 	<div class="blogItem">
-    
+		<p class="pageTitle">{{ page.title }}</p>
+		<p class="author">Austin Garrard - {{ page.mydate }}</p>
+		<hr/>
+		
     	{{ content }}
+    	
+    	<br/>
+    	
+    	<hr/>
+    	
+    	<a href="{{ site.baseurl }}/">Back</a>
     
     </div>
     

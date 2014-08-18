@@ -1,8 +1,10 @@
 ---
 layout: blog
 title: "Empire vs Cloud9 @ DreamLeague Season 1"
-description: "SPOILERS: Recap of 3/25 Empire vs Cloud 9 @ DreamLeague Season 1 Group Stages"
+description: "Recap of 3/25 Empire vs Cloud 9 @ DreamLeague Season 1 Group Stages"
 mydate: "March 26, 2014"
+tags:
+- dota
 ---
 
 <table class="matchInfo">

@@ -1,8 +1,14 @@
 ---
 ---
 
-div.pageTitle {
+.pageTitle {
 	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+}
+.author {
+	text-align: center;
+	font-size: 15px;
 }
 
 body {
@@ -75,6 +81,8 @@ div.container {
 a.blogLink {
 	text-decoration: none;
 	color: blue;
+	font-weight: bold;
+	font-size: 18px;
 	&:hover {
 		text-decoration: underline;
 	}
@@ -83,7 +91,6 @@ a.blogLink {
 li.blogItem {
 	color: #333;
 	width: 90%;
-	line-height: 5px;
 	overflow:auto;
 	padding: 10px;
 	text-align: center;
@@ -116,6 +123,14 @@ hr {
 	border: 0;
 	height: 0;
 	width: 80%;
+	border-top: 1px solid rgba(0,0,0,1);
+	border-bottom: 1px solid rgba(255,255,255,.3);
+}
+
+hr.li {
+	border: 0;
+	height: 0;
+	width: 15%;
 	border-top: 1px solid rgba(0,0,0,1);
 	border-bottom: 1px solid rgba(255,255,255,.3);
 }
