@@ -1,6 +1,7 @@
 
-name: Austin Garrard
-
-description: This is my personal blog.
+name: Austin's Blog
+description: Austin Garrard's personal blog
+markdown: redcarpet
+pygment: true
 
 
