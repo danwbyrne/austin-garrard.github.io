@@ -3,16 +3,17 @@
 
 .pageTitle {
 	text-align: center;
-	font-size: 25px;
+	font-size: 2empx;
 	font-weight: bold;
 }
 .author {
 	text-align: center;
-	font-size: 15px;
+	font-size: 1empx;
 }
 
 .tagList {
 	text-align: center;
+	font-size: .8em;
 	font-style: italic;
 }
 
@@ -21,21 +22,13 @@ body {
   /*background-image: image-url('background.jpg');*/
   color: #222;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 1em;
   line-height: 18px;
   margin: 0px;
   padding: 10px;
 }
 
-.notice, .alert {
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;	
-	color: red;
-}
-
-$container_width: 900px;
+$container_width: 60%;
 div.container {
 	width: $container_width;
 	min-height: 100%;
@@ -87,7 +80,7 @@ a.blogLink {
 	text-decoration: none;
 	color: blue;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 1.1em;
 	&:hover {
 		text-decoration: underline;
 	}
@@ -118,7 +111,7 @@ div.blogItem {
 	
 	img {
 		display: block;
-		max-width: ($container_width / 2) + 100;
+		max-width: ($container_width / 2) + 100px;
 		margin-left: auto;
 		margin-right: auto;
 	}
