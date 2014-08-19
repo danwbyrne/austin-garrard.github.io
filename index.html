@@ -2,7 +2,9 @@
 layout: default
 title: Home
 ---
+{% include the_tag_list.html %}
 
+<h3>All Posts</h3>
 <ul class="blogList">
   {% for post in site.posts %}
     <li class="blogItem">

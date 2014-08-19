@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% include the_tag_list.html %}
+
+<h3>{{page.title}}</h3>
+
+<ul class="blogList">
+  {% for post in site.posts %}
+  {% for tag in post.tags %}
+  {% if tag == page.tag %}
+  <li class="blogItem">
+    <a class="blogLink" href='{{post.url}}'>{{post.title}}</a>
+    <div><em>{{post.description}}</em></div>
+    <div class="date">{{ post.mydate }}</div>
+  </li>
+  <p>&nbsp;</p>
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+</ul>
