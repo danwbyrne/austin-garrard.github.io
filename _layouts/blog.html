@@ -6,6 +6,7 @@
 		<p class="author">
 			<div class="tagList">
 				tags: 
+				<a href="{{site.baseurl}}/">all</a> &nbsp;
 				{% for tag in page.tags %}
 				<a href="{{site.baseurl}}/tag/{{tag}}/index.html">{{tag}}</a> &nbsp;
 				{% endfor %}
@@ -18,8 +19,6 @@
     	<br/>
     	
     	<hr/>
-    	
-    	<a href="{{ site.baseurl }}/">Back</a>
     
     </div>
     
