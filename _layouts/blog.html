@@ -1,22 +1,20 @@
 {% include head.html %}
-	
-		<p class="pageTitle">{{ page.title }}</p>
-		<p class="author">Austin Garrard - {{ page.mydate }}</p>
-		<p class="author">
-			<div class="tagList">
-				tags: 
-				<a href="{{site.baseurl}}/">all</a> &nbsp;
-				{% for tag in page.tags %}
-				<a href="{{site.baseurl}}/tag/{{tag}}/index.html">{{tag}}</a> &nbsp;
-				{% endfor %}
-			</div>
-		</p>
-		<hr/>
-		
-    	{{ content }}
-    	
-    	
-    	<hr/>
+    
+        <p class="pageTitle">{{ page.title }}</p>
+        <p class="center">Austin Garrard - {{ page.mydate }}</p>
+        <p class="center italic">
+            tags: 
+            <a href="{{site.baseurl}}/">all</a> &nbsp;
+            {% for tag in page.tags %}
+            <a href="{{site.baseurl}}/tag/{{tag}}/index.html">{{tag}}</a> &nbsp;
+            {% endfor %}
+        </p>
+        <hr/>
+        
+{{ content }}
+        
+        
+        <hr/>
     
 
 {% include foot.html %}

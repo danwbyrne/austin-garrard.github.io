@@ -4,14 +4,14 @@ title: Home
 ---
 {% include the_tag_list.html %}
 
-<h3>All Posts</h3>
-<ul>
-  {% for post in site.posts %}
-    <li class="blogItem">
-      		<a href="{{ post.url }}">{{ post.title }}</a>
-      		<div><em>{{ post.description }}</em></div>
-      		<div class="date">{{ post.mydate }}</div>
-    </li>
-    <p>&nbsp;</p>
-  {% endfor %}
-</ul>
+            <h3>All Posts</h3>
+            <ul>
+              {% for post in site.posts %}
+                <li class="blogItem">
+                          <a href="{{ post.url }}">{{ post.title }}</a>
+                          <div><em>{{ post.description }}</em></div>
+                          <div class="date">{{ post.mydate }}</div>
+                </li>
+                <p>&nbsp;</p>
+              {% endfor %}
+            </ul>
