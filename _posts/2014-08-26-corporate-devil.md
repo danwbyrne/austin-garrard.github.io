@@ -40,7 +40,7 @@ Aaron stared in open-mouthed shock. Karissa, who had been all formal attention u
 
 “Alright.” Jennifer replied, turning to Aaron with the look that meant, “OK techie, it’s your time to shine.” Gina’s gaze followed shortly after, that painted-on smile plastering her face, eyes wide with expectation, nostrils enlarging as wisps of smoke drifted lazily out of them. Aaron’s hands were still clasped to his thermos, but the pressure from all 4 people in the room looking at him expectantly forced him to action. 
 
-Gina offered him her laptop. Her eyes locked on his as the device passed from her to him. He couldn’t look away, even as he fumbled for the projector cable and shoved it into the laptop. How, after all this time, had he not noticed the short, flaming red horns protruding from her skull? Surely he had documented it in GINA_CROWLEY_IS_A_HELLBITCH.docx before HR had looked it over and promptly demanded he destroy it? What hellacious conspiracy allowed that spear-tipped tail, lazily flicking at him, to go unnoticed by the world?
+Gina offered him her laptop. Her eyes locked on his as the device passed from her to him. He couldn’t look away, even as he fumbled for the projector cable and shoved it into the laptop. How, after all this time, had he not noticed the short, flaming red horns protruding from her skull? Surely he had documented it in GINA-CROWLEY-IS-A-HELLBITCH.docx before HR had looked it over and promptly demanded he destroy it? What hellacious conspiracy allowed that spear-tipped tail, lazily flicking at him, to go unnoticed by the world?
 
 Aaron mechanically turned on the projector, and turned the laptop back towards Gina. She bared her teeth at him in a supposed smile. He didn’t even watch the video. 
 
