@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: "Corporate Devil"
-description: "Response to a prompt on r/WritingPrompts"
+description: "'An assorted cast of corporate employees plan their company's next project in the conference room. One of them is the Devil.'-  r/WritingPrompts"
 mydate: "August 26, 2014"
 tags:
 - creative
