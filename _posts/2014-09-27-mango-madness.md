@@ -57,6 +57,7 @@ The amounts on the ingredient are pretty rough, because I’m more of an eyeball
 
 * 4 Roma tomatoes (skinned & drained)
 * 1 white onion
+* 3 cloves of garlic (smashed & diced)
 * 3 habanero peppers (roasted, including seeds)
 * 2 limes’ worth of juice
 * 1 part salt
