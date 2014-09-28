@@ -39,7 +39,9 @@ The amounts on the ingredient are pretty rough, because I’m more of an eyeball
 
 ![Final result]({{ site.url }}/assets/mango_salsa.jpg)
 
-The result (1 mason jar of salsa) really shows the habanero and mango. It starts out tasting sweet, but after a few seconds the habanero kicks in and you’re coughing and sniffling. Paul and I are all about the spice so we loved it, but if you’re not into clearing out your sinuses(or your bowels) you might want to use jalapenos, or just don’t include the seeds.
+<div class="description">The result: 1 mason jar of salsa</div>
+
+It starts out tasting sweet, but after a few seconds the habanero kicks in and you’re coughing and sniffling. Paul and I are all about the spice so we loved it, but if you’re not into clearing out your sinuses(or your bowels) you might want to use jalapenos, or just don’t include the seeds.
 
 It was great with chips, and I tried it in a taco with tilapia and asparagus which tasted amazing. Obviously it's great with eggs. Gonna have to put it on some pork, too.
 
