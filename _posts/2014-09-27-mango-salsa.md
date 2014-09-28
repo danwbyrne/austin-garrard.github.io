@@ -55,6 +55,10 @@ At the end of the day, I’m more excited to have found out the general process 
 
 ![1]({{ site.url }}/assets/mango_salsa2.JPG)
 
+<div class="description">Next-level egg-in-a-nest</div>
+
 ![1]({{ site.url }}/assets/mango_salsa3.JPG)
+
+<div class="description">Oh baby</div>
 
 
