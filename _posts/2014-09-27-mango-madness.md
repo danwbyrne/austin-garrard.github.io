@@ -62,7 +62,7 @@ The amounts on the ingredient are pretty rough, because I’m more of an eyeball
 
  &nbsp;
 
-![Final product]({{ site.url }}/assets/mango_salsa.jpg)
+<img src="{{ site.url }}/assets/mango_salsa.jpg" id="campaign-icon" />
 
 The result (1 mason jar of salsa) looks a little sketchy looking if you don’t know what went into it, but the habanero and mango really shine through in the visual and taste departments. It starts out sweet, like mango, but after a few seconds the habanero kicks in and you’re coughing and sniffling. Paul and I are all about the spice so we loved it, but if you’re not into clearing out your sinuses(or your bowels) you might want to use jalapenos, or just don’t include the seeds.
 
