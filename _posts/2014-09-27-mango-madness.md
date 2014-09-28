@@ -4,7 +4,7 @@ title: "Mango Madness"
 description: "Making things with mango"
 mydate: "September 27, 2014"
 tags:
-- misc
+- food
 ---
 
 
