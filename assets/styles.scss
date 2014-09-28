@@ -4,7 +4,7 @@
 //page elements
 
 body {
-  background-color: #222;
+  background-color: #336;
   color: #223;
   font-family: verdana;
   font-size: 1em;
@@ -52,10 +52,27 @@ div.content {
         display: block;
         margin-left: auto;
         margin-right: auto;
+
+        .left {
+            max-width: 45%;
+            max-height: 400px;
+            float: left;
+        }
+        .right {
+            max-width: 45%;
+            max-height: 400px;
+            float: right;
+        }
     }
 
     h3 {
         text-align: center;
+    }
+
+    img.left, img.right {
+        max-width: 45%;
+        max-height: 400px;
+
     }
 }
 

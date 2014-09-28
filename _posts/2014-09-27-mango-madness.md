@@ -10,11 +10,7 @@ tags:
 
 My roommate Paul has gotten me on a serious mango kick. After stealing slices of his mangos for a week I finally went to HEB and got my own. 
 
-![Stock mango photo](http://www.naturalhealth365.com/images/eating-mangoes.jpg)
-
 The ones at my HEB aren’t as flattering as the above picture, and are mostly green, but they are delicious. In my very uneducated and unpracticed opinion, the firmness of a perfectly ripe mango is roughly that of a perfectly ripe avocado. That’s not a terribly specific metric but if you buy fruit on the regular you know what I’m getting at. 
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/yMXd-vbOLNo" frameborder="0" allowfullscreen></iframe>
 
 There are all kinds of tricks for getting the flesh of your mango ready to eat, but I just used a knife to peel the skin and cut up the good parts. Mine was a little overripe and things got a little messy. I probably could have made a couple glasses of juice if I had the foresight.
 
@@ -47,15 +43,13 @@ Thinking about putting salsa on my mango breakfast sandwich got me thinking: why
 
 The main component to any salsa is tomatoes. These fruits are usually very involved to cook with, and I’ve been trying to figure out how to work with them. I’d suggest making salsa as a way to learn your way around this tricky but essential ingredient. There are lots of nuances to the different types of tomatoes that I have hardly begun to explore, so I usually just stick to Roma tomatoes.
 
-The common element to most of the salsa recipes I looked at was to skin the tomatoes. There are lots of ways to do this(Google is your friend). I boiled some water, then plopped the tomatoes in there for a couple minutes. Some people suggest putting the hot tomatoes into ice water afterwards, but for whatever reason that didn’t work for me. I let the remaining tomatoes cool down a bit on their own, cut them in half(see below), held them over the trash and squeezed the water and seeds out. Doing this resulted in the skin coming halfway off, so after most the juices are out you can just pick the remaining skin off and toss it. 
-
-![Cut them like this](http://1.bp.blogspot.com/_AQLIYSlc32k/S5PHqJAvIII/AAAAAAAAff8/HU8lFYnwOGo/s800/DSC_8991.JPG)
+The common element to most of the salsa recipes I looked at was to skin the tomatoes. There are lots of ways to do this(Google is your friend). I boiled some water, then plopped the tomatoes in there for a couple minutes. Some people suggest putting the hot tomatoes into ice water afterwards, but for whatever reason that didn’t work for me. I let the remaining tomatoes cool down a bit on their own, cut them in half width-wise, held them over the trash and squeezed the water and seeds out. Doing this resulted in the skin coming halfway off, so after most the juices are out you can just pick the remaining skin off and toss it. 
 
 After skinning and squeezing/draining the tomatoes, it was just a matter of chopping them up and combining them with the rest of the ingredients. The procedure I decided on called for simmering all the ingredients for 30 minutes. My intuition told me that putting the mango in at the start would result in all its flavor being simmered out, so I put in all the ingredients below except for the mango for about 20 minutes, then added the mango in for the last 2 minutes (I wasn’t brave enough to make it all the way to 30).
 
 The amounts on the ingredient are pretty rough, because I’m more of an eyeballer/gut-feeling type of guy. Regardless, this is what went into my salsa:
 
-* 4 Roma tomatoes (skinned & drained)
+* 4 Roma tomatoes (skinned, drained & chopped)
 * 1 white onion
 * 3 cloves of garlic (smashed & diced)
 * 3 habanero peppers (roasted, including seeds)
@@ -70,9 +64,9 @@ The amounts on the ingredient are pretty rough, because I’m more of an eyeball
 
 ![Final product]({{ site.url }}/assets/mango_salsa.jpg)
 
-The result (1 mason jar of salsa) looks a little sketchy looking if you don’t know what went into it, but the habanero and mango really shine through in the visual and taste departments. It starts out sweet, like mango, but after a few seconds the habanero kicks in and you’re coughing and sniffling (the only proper indicators of spiciness). Paul and I are all about the spice so we loved it, but if you’re not into clearing out your sinuses(or your bowels) you might want to use jalapenos, or just don’t include the seeds.
+The result (1 mason jar of salsa) looks a little sketchy looking if you don’t know what went into it, but the habanero and mango really shine through in the visual and taste departments. It starts out sweet, like mango, but after a few seconds the habanero kicks in and you’re coughing and sniffling. Paul and I are all about the spice so we loved it, but if you’re not into clearing out your sinuses(or your bowels) you might want to use jalapenos, or just don’t include the seeds.
 
-You’re supposed to add lime and/or lemon juice to salsa to keep it from spoiling, but I didn’t really notice the lime in the flavor department. I’ve decided that next time I’m going to try adding it in near the end, like the mango.
+I didn’t really notice the lime in the flavor department. I’ve decided that next time I’m going to try adding it in near the end, like the mango. You’re supposed to add lime and/or lemon juice to salsa to keep it from spoiling, but I don't know enough about the process yet to comment. In any case, this can of salsa won't be sitting around long enough to spoil.
 
 When I started out I thought I way overdid the cumin, because the whole house reeked of it, but it turned out well. The pepper I used is some kind of peppercorn we got at HEB put through a spice grinder. I’ve been putting it on everything and I think it delivered here. 
 
