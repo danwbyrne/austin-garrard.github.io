@@ -68,12 +68,18 @@ The result (1 mason jar of salsa) looks a little sketchy looking if you don’t 
 
 I didn’t really notice the lime in the flavor department. I’ve decided that next time I’m going to try adding it in near the end, like the mango. You’re supposed to add lime and/or lemon juice to salsa to keep it from spoiling, but I don't know enough about the process yet to comment. In any case, this can of salsa won't be sitting around long enough to spoil.
 
-When I started out I thought I way overdid the cumin, because the whole house reeked of it, but it turned out well. The pepper I used is some kind of peppercorn we got at HEB put through a spice grinder. I’ve been putting it on everything and I think it delivered here. 
+When I started out I thought I way overdid the cumin, because the whole house reeked of it, but it turned out well. I still think I'll use less cumin next time. The pepper I used is some kind of peppercorn we got at HEB put through a spice grinder. I’ve been putting it on everything and I think it delivered here. 
 
 Next time I will probably use less onion and more tomato. The salsa came out kind of chunky, which I like, but I want to figure out how to get a more salsa-y consistency.
 
 It was great with chips, and I tried it in a taco with tilapia and asparagus which tasted amazing. Paul is going to try it with some pork, which sounds fantastic. I haven’t put it on an egg sandwich yet but I’m sure that would work. 
 
 At the end of the day, I’m more excited to have found out the general process for making salsa. I’ve always been a fan of the sweet & spicy combo and I’m stoked I found something that works so quickly, but I’ll definitely be experimenting with salsa in the future. My only regret is that HEB was out of fresh cilantro when I went. That should be a crime. 
+
+![1]({{ site.url }}/assets/mango_salsa1.JPG)
+
+![1]({{ site.url }}/assets/mango_salsa2.JPG)
+
+![1]({{ site.url }}/assets/mango_salsa3.JPG)
 
 
