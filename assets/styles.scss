@@ -45,11 +45,17 @@ div.content {
     width: $container_width;
     min-height: 400px;
     padding: $container_padding;
-    img {
+
+    img, iframe {
         max-width: 90%;
+        max-height: 400px;
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    h3 {
+        text-align: center;
     }
 }
 
