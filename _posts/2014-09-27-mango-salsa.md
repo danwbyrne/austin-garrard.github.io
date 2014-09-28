@@ -22,18 +22,18 @@ The common element to most of the salsa recipes I looked at was to skin the toma
 
 After skinning and squeezing/draining the tomatoes, it was just a matter of chopping them up and combining them with the rest of the ingredients. I decided to put all the ingredients except for the mango into a pot to simmer for about 20 minutes. I added the mango in for just a couple minutes at the end.
 
-The amounts on the ingredient are pretty rough, because I’m more of an eyeballer/gut-feeling type of guy. Regardless, this is what went into my salsa:
+The amounts on the ingredient are rough, because I’m more of an eyeballer/gut-feeling type of guy. Regardless, this is what went into my salsa:
 
-* 4 Roma tomatoes (skinned, drained & chopped)
+* 4 Roma tomatoes
 * 1 white onion
-* 3 cloves of garlic (smashed & diced)
-* 3 habanero peppers (roasted, including seeds)
+* 3 cloves of garlic
+* 3 habanero peppers
 * 2 limes’ worth of juice
 * 1 part salt
+* 1 part chili powder
 * 2 part pepper
 * 3 part cumin
-* 1 part chili powder
-* 1 cup mango (diced)
+* 1/2 cup mango
 
  &nbsp;
 
