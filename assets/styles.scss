@@ -10,8 +10,8 @@ body {
   font-size: 1em;
 }
 
-$banner_width: 760px;
-$banner_height: 150px;
+$banner_width: 811px;
+$banner_height: 175px;
 $container_padding: 20px;
 $container_width: $banner_width - ($container_padding * 2);
 div.container {
@@ -33,9 +33,9 @@ div.header {
     width: $container_width;
     height: $banner_height;
     padding: $container_padding;
-    text-align: right;
+    text-align: left;
     color: #000;
-    background-image: url('banner.jpg');
+    background-image: url('banner1.jpg');
     a {
         color: #222;
     }
