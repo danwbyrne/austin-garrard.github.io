@@ -10,8 +10,8 @@ body {
   font-size: 1em;
 }
 
-$banner_width: 811px;
-$banner_height: 175px;
+$banner_width: 850px;
+$banner_height: 185px;
 $container_padding: 20px;
 $container_width: $banner_width - ($container_padding * 2);
 div.container {
@@ -33,7 +33,7 @@ div.header {
     width: $container_width;
     height: $banner_height;
     padding: $container_padding;
-    text-align: left;
+    text-align: right;
     color: #000;
     background-image: url('banner1.jpg');
     a {
@@ -80,7 +80,7 @@ div.content {
 li.blogItem {
     color: #333;
     width: 90%;
-    text-align: center;
+    text-align: left;
     list-style-type: none;
     
     a {
