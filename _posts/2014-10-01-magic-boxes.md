@@ -7,7 +7,7 @@ tags:
 - essay
 ---
 
-<div style="text-align:left;font-style:italic;font-size:.8em;">A work in progress</div>
+<div class="description">A work in progress</div>
 
 ### The Magic Box
 
@@ -84,7 +84,7 @@ The idea that the true catalyst for healing effects is the hypnotic state of the
   * Drink a cup of fluidified water four times a day.
   * Give thanks to God for the blessings you receive, which are always in proportion with your merit. 
 
-<div class=”description”>Lynch provides the preparations expected of patients before being treated by Dr. Fritz via Malgalhaes</div>
+<div class="description">Lynch provides the preparations expected of patients before being treated by Dr. Fritz via Malgalhaes</div>
 
 So there is at least some justification for Spiritist healing in the scientific sphere. “In certain states, the human mind can willingly transduce arbitrary treatments and/or knowledge into bodily responses that successfully mend internal ills” is a cool idea that is strangely intuitive in the context of religion (and for anyone who has successfully used alternative medicine such as acupuncture), but the understanding of how the different systems of the human body interact is lacking to the point where little can be said definitively on the matter.
 
