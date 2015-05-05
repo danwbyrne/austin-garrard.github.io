@@ -9,7 +9,7 @@ tags:
 
 ![PCB]({{ site.url }}/assets/PCB.jpg)
 
-This is a prototype circuit I constructed for a class project. It takes input from an Arduino microcontroller and outputs images to an LED display. You could think of the circuit as a graphics card, though someone actually involved in graphics would probably be offended by the comparison. The main thing that the circuit does is multiplexing: controlling many outputs with few inputs.
+This is a prototype circuit I constructed for a class project. It takes input from an Arduino microcontroller and outputs images to an LED display. You could think of the circuit as a graphics card, though someone actually involved in graphics would probably be offended by the comparison. The main thing that the circuit does is controlling many outputs with few inputs.
 
 Our LED display consists of 512 LED’s. By our own design specification, each LED in the display should be individually controllable. This seems hunky-dory until we take a look at our controller, which has at most 20 individual outputs. We could search for another controller, but as it turns out, few such devices ship with an arbitrarily high number of outputs. The solution to this multiplexing problem is the pictured circuit. It uses 6 inputs to individually control all 512 LED’s in the display. The really cool part is that it works!
 
