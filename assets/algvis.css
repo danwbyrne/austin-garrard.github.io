@@ -1,0 +1,26 @@
+
+body {
+    font-family: verdana;
+}
+
+.choiceBox {
+    display: inline-block;
+}
+.choiceBoxTitle {
+    float:top;
+    font-size: 1.25em;
+    font-weight: bold; 
+    padding: 5px;
+}
+.choice {
+    font-size: .75em;
+    font-weight: bold;
+    color: #eeeeee;
+    background-color: #2e2e2e;
+    padding: 5px;
+    margin-left: 2px;
+    float: left;
+    min-width: 50px;
+    text-align: center;
+    cursor: pointer;
+}
