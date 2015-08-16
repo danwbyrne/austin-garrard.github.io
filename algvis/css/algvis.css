@@ -1,0 +1,45 @@
+
+body {
+    font-family: verdana;
+}
+
+.sortContent {
+    width: 60%;
+    float:left;
+}
+
+.optionsMenu {
+    width: 30%;
+    list-style-type: none;
+    float: left;
+}
+
+.optionsMenu .option {
+    padding: 5px;
+}
+
+.choiceBox {
+    display: inline-block;
+    width: 100%;
+}
+.choiceBox .choiceBoxTitle {
+    float:top;
+    font-size: 1.25em;
+    font-weight: bold; 
+}
+.choiceBox .choice {
+    font-size: .75em;
+    font-weight: bold;
+    color: #2e2e2e;
+    background-color: #eeeeee;
+    margin: .1em;
+    padding: .1em;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+.choiceBox .selectedChoice {
+    background-color: #2e2e2e;
+    color: #eeeeee;
+}

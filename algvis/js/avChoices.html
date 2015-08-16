@@ -1,0 +1,11 @@
+<div class="choiceBox">
+
+	<div class="choiceBoxTitle">
+		{{ title }}
+	</div>
+
+	<div ng-repeat="item in items"  ng-click="click($index)" ng-class="{choice: true, selectedChoice: $index==selectedIndex}">
+		{{ item }}
+	</div>
+
+</div> 

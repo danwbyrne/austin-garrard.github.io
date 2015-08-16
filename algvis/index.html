@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>algvis</title>
+		<link rel="stylesheet" type="text/css" href="css/algvis.css"/>
+
+		<!--angular(debug)-->
+		<script src="lib/angular.js"></script>
+
+		<!--https://github.com/rzajac/angularjs-slider-->
+		<link rel="stylesheet" type="text/css" href="lib/rzslider.min.css"/>
+		
+	</head>
+
+	<body ng-app="algVis">
+
+		<div ng-controller="SortController" style="width:100%">
+
+			<!--testing/debug-->
+			<div>
+				<button ng-click="test()">test</button>
+			</div>
+
+			<!-- options menu for sort-->
+			<ul class="optionsMenu">
+
+				<li class="option">
+					<av-slider title="Input Size"
+							   value="input.size"
+							   min="10"
+							   max="100">
+				    </av-slider>
+				</li>
+
+				<li class="option">
+					<av-choices title="Input Type" 
+								items="inputTypes" 
+								update="setInputType(index)">
+					</av-choices>
+				</li>
+
+				<li class="option">
+					<av-choices title="Sort Type"
+								items="sortTypes"
+								update="setSortType(index)">
+					</av-choices>
+				</li>
+
+				<li class="option">
+					<av-slider title="Animation Speed"
+							   value="stageTime"
+							   min="0"
+							   max="5"
+							   update="">
+					</av-slider>
+
+				<li class="option">
+					<av-choices title="Animation"
+								items="runStatuses"
+								update="setRunStatus(index)">
+					</av-choices>
+				</li>
+
+			</ul>
+
+			<!-- sort display -->
+			<div class="sortContent">
+				<av-canvas width="800" 
+						   height="400"
+						   input="input"
+						   status="drawStatus">
+				</av-canvas>
+			</div>
+		</div>
+			
+		</div>
+
+		<!-- algVis app -->
+		<script src="js/algvis.js"></script>
+
+		<!-- algVis controllers -->
+		<script src="js/SortController.js"></script>
+
+		<!-- algVis directives -->
+		<script src="js/avChoices.js"></script>
+		<script src="js/avSlider.js"></script>
+		<script src="js/avCanvas.js"></script>
+
+		<script src="lib/rzslider.min.js"></script>
+
+
+	</body>
+</html>
