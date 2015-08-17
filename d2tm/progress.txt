@@ -1,0 +1,10 @@
+
+
+Sunday, August 16, 2015
+	Tasks complete:
+		-1)abc 
+		-3)a 
+
+	Notes:
+		-added some detailed requirements to the design doc
+		-scraping play data doesn't seem viable, will probably enter player data by hand

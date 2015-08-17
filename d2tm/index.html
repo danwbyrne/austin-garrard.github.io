@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title> Dota2 Team Manager </title>
+
+		<!-- stylesheets -->
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		
+	</head>
+
+	<body ng-app="d2tm">
+
+		<!-- main wrapper -->
+		<div class="container" ng-controller="d2tmController">
+
+
+			<d2tm-create-team team="inputTeam" done="createTeam()">
+		    </d2tm-create-team>
+
+		    <hr/>
+
+
+			<d2tm-player-selection team="team"
+								   players="allPlayers"
+								   done="setScreen('ViewTeam')">
+			</d2tm-player-selection>
+
+			<hr/>
+
+
+			<d2tm-view-team team="team"
+							players="allPlayers"
+							done="setScreen('CreateTeam')">
+			</d2tm-view-team>
+
+
+		<!-- end main wrapper -->
+		</div>
+
+
+
+		<!-- scripts -->
+
+		<!-- jquery, jqueryui, angular, ui.angular -->
+		<!-- https://github.com/angular-ui/ui-sortable -->
+		<!-- http://cdn.jsdelivr.net/g/jquery@1,jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29,angularjs@1.4,angular.ui-sortable -->
+		<script src="lib/custom-build.js"></script>
+
+		<!-- app -->
+		<script src="app.js"></script>
+		<!-- controller -->
+		<script src="controller/d2tmController.js"></script>
+		<!-- directives -->
+		<script src="directive/d2tmCreateTeam.js"></script>
+		<script src="directive/d2tmPlayerSelection.js"></script>
+		<script src="directive/d2tmViewTeam.js"></script>		
+
+	</body>
+
+</html>

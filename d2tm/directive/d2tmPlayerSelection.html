@@ -1,0 +1,26 @@
+<div>
+	<h2>Player Selection</h2>
+	<h3>All Players</h3>
+	<div ng-repeat="player in players" ng-click="addToRoster(player)">
+			{{ player.name}} - {{ player.handle }}
+	</div>
+
+	<br/>
+
+	<h3>Roster</h3>
+	<!--
+	<div ng-repeat="player in team.roster">
+		<div ng-click="removeFromRoster(player)">
+			{{ player.name}} - {{ player.handle }}
+		</div>
+		 <div ng-click="increasePosition(player)">UPUPUPUP</div>
+		 <div ng-click="decreasePosition(player)">DOWNDOWN</div>
+	</div>
+	-->
+
+	<ul ui-sortable="sortableOptions" ng-model="team.roster">
+      <li ng-repeat="player in team.roster">
+        {{ player.name}} - {{ player.handle }}
+      </li>
+    </ul>
+</div>

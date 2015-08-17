@@ -1,0 +1,13 @@
+<div>
+	<h2>View Team: {{ team.name }}</h2>
+	<img src="{{team.logo}}"/> <br/>
+	Sponsored by {{team.sponsor}}<br />
+
+	<div style="display:inline-block">
+		<div ng-repeat="player in team.roster" style="float:left;border-left:1px solid">
+
+			{{ team.tag }}.{{ player.handle }}  <br/>
+			{{ player.name}}
+
+		</div>
+</div>
