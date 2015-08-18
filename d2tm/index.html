@@ -19,23 +19,26 @@
 			<d2tm-create-team team="inputTeam" done="createTeam()">
 		    </d2tm-create-team>
 
+		    <br/>
 		    <hr/>
 
-
+<p>
 			<d2tm-player-selection team="team"
 								   players="allPlayers"
-								   done="setScreen('ViewTeam')">
+								   done="setScreen('ViewTeam')"
+								   options="sortableOptions">
 			</d2tm-player-selection>
-
+</p>
+			<br/>
 			<hr/>
 
-
+			<p>
 			<d2tm-view-team team="team"
 							players="allPlayers"
 							done="setScreen('CreateTeam')">
 			</d2tm-view-team>
 
-
+		</p>
 		<!-- end main wrapper -->
 		</div>
 
