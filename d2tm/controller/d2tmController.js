@@ -49,6 +49,13 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 	});
 
 	//Player Selection
+	$scope.onDropComplete = function(index, data, event) {
+		var otherObj = $scope.team.roster[index];
+        var otherIndex = $scope.team.roster.indexOf(data);
+        $scope.team.roster[index] = data;
+        $scope.team.roster[otherIndex] = otherObj;
+	};
+
 	$scope.addToRoster = function(player) {
 		for(i=0; i<6; i++) {
 			if($scope.team.roster[i].dummy) {

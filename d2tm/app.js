@@ -1,5 +1,5 @@
 
-var app = angular.module('d2tm', ['ui.sortable', 'ui.bootstrap']);
+var app = angular.module('d2tm', ['ui.bootstrap', 'ngDraggable']);
 
 
 app.factory("playerInfo", function() {

@@ -8,6 +8,7 @@
 		<!-- stylesheets -->
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		
+		
 	</head>
 
 	<body ng-app="d2tm">
@@ -64,10 +65,10 @@
 					
 					<br/>
 
-					<ul ui-sortable="sortableOptions" ng-model="team.roster">
+					<ul ng-model="team.roster">
 						
-				      <li ng-repeat="player in team.roster">
-				      	<div class="tile">
+				      <li ng-repeat="player in team.roster" ng-drop="true" ng-drop-success="onDropComplete($index, $data,$event)">
+				      	<div class="tile" ng-drag="true" ng-drag-data="player">
 				      		<div class="pos">
 			      				<div class="rotate" ng-if="$index==5">
 			      					coach
@@ -76,7 +77,7 @@
 			      					{{ $index+1 }}
 			      				</div>
 				      		</div>
-					      	<div class="pic"> <img class="handle" src="{{player.picture}}" ng-if="player.picture!=''"/></div>
+					      	<div class="pic" > <img class="handle" src="{{player.picture}}" ng-if="player.picture!=''"/></div>
 					        <div class="info">
 								<div class="playerHandle">{{ player.handle}}</div>
 								<div class="playerName">{{ player.name }} </div>
@@ -117,11 +118,12 @@
 
 		<!-- scripts -->
 
-		<!-- jquery, jqueryui, angular, angular bootstrap, ui.angular -->
-		<!-- https://github.com/angular-ui/ui-sortable -->
-		<!-- https://angular-ui.github.io/bootstrap/ -->
+		<!-- angular, angular bootstrap -->
 		<!-- http://cdn.jsdelivr.net/g/jquery@1,jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29,angularjs@1.4,angular.bootstrap@0.13.3,angular.ui-sortable -->
 		<script src="lib/custom-build.js"></script>
+		<!-- https://github.com/fatlinesofcode/ngDraggable -->
+		<script src="lib/ngDraggable.js"></script>
+
 
 		<!-- app -->
 		<script src="app.js"></script>

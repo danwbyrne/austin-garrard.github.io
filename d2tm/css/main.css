@@ -274,3 +274,7 @@ td {
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
 }
+
+[ng-drop].drag-enter {
+    border: solid 5px red;
+}
