@@ -8,3 +8,46 @@ Sunday, August 16, 2015
 	Notes:
 		-added some detailed requirements to the design doc
 		-scraping play data doesn't seem viable, will probably enter player data by hand
+
+Monday, August 17, 2015
+	Tasks complete:
+		-3)b
+
+	Tasks in progress:
+		-4)
+
+	New Tasks:
+		-6) manually enter data
+			a) player names, handles
+			b) download player pictures
+
+
+	Notes:
+		-couldn't figure out why routes don't work, abandoning separate screens approach
+			-all information/functionality will be placed on a single page
+		-scraping the needed information is not viable. features based on the prize money, TI placement, top heroes, and former teams fields are now invalid.
+			- Task 2)ab invalid
+			- Task 5) invalid
+
+
+Tuesday, August 18, 2015
+	Tasks complete:
+		-4)bc
+
+	Tasks in progress:
+		-6)a
+		-logo url entry
+
+	New Tasks:
+		-7) create updated detailed requirements for single-screen approach
+		-8) clean up code
+			a) css/main.css
+			b) index.html
+			c) controller/d2tmController.js
+			d) delete unneeded files
+
+Wednesday, August 19, 2015
+	TODO:
+		
+	Tasks complete:
+		-7)

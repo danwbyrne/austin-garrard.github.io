@@ -23,6 +23,7 @@ Technologies:
 	-HTML5
 	-CSS3
 	-AngularJS 1.4.3
+	-jquery 1.11
 	-git
 	-github pages (hosting)
 
@@ -116,5 +117,38 @@ Functionality:
 
 	-each screen will have its own directive. only one directive will be shown at a time.
 
+
+----------------------------------------------------
+
+New Detailed Requirements (per task 7)):
+	1) A small area with the following inputs:
+		a) Team name
+		b) team sponsor
+		c) team logo
+			I) user clicks a button to view a dialog
+			II) url is input through the dialog
+	2) Players displayed using tiles:
+		a) name
+		b) handle
+		c) picture
+	3) An area where available players are displayed
+		a) player is added to roster by clicking their picture
+	4) An area where the current roster is displayed
+		a) initially displays 6 blank entries
+		b) when a player is added to the roster:
+			I) the player is added to the highest available position
+			II) the player can be dragged to a new position using the picture as a handle
+			III) the player can be removed from the roster by clicking the red x on the tile
+
+
+New Tasks (as of August 19):
+	1) Finish styling layout
+	2) Finish styling background colors
+	3) Logo url dialog
+	4) clean up code
+		a) css/main.css
+		b) index.html
+		c) controller/d2tmController.js
+		d) delete unneeded files
 
 

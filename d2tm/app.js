@@ -1,5 +1,5 @@
 
-var app = angular.module('d2tm', ['ui.sortable']);
+var app = angular.module('d2tm', ['ui.sortable', 'ui.bootstrap']);
 
 
 app.factory("playerInfo", function() {

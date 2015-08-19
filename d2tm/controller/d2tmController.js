@@ -1,8 +1,11 @@
-app.controller('d2tmController', ['$scope', 'playerInfo',
-	function($scope, playerInfo) {
+app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
+	function($scope, playerInfo, $modal) {
 
-	$scope.prompt = false;
 
+    $scope.modalShown = false;
+	  $scope.toggleModal = function() {
+	    $scope.modalShown = !$scope.modalShown;
+	  };
 
 	//the user's team
 	$scope.team = /*{
@@ -91,8 +94,33 @@ app.controller('d2tmController', ['$scope', 'playerInfo',
 		return 'http://cdn.dota2.com/apps/dota2/images/heroes/' + player.topHeroes[index]+'_sb.png';
 	}
 
+	$scope.logoDialog = function() {
+
+	}
 	
 
-	
+}]);
 
-}])
+
+app.directive('modalDialog', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      show: '=',
+      logo: '='
+    },
+    replace: true, // Replace with the template below
+    transclude: false, // we want to insert custom content inside the directive
+    link: function(scope, element, attrs) {
+      scope.dialogStyle = {};
+      if (attrs.width)
+        scope.dialogStyle.width = attrs.width;
+      if (attrs.height)
+        scope.dialogStyle.height = attrs.height;
+      scope.hideModal = function() {
+        scope.show = false;
+      };
+    },
+    templateUrl: 'modalDialog.html' // See below
+  };
+});
