@@ -2,26 +2,42 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 	function($scope, playerInfo, $modal) {
 
 
-    $scope.modalShown = false;
-	  $scope.toggleModal = function() {
-	    $scope.modalShown = !$scope.modalShown;
-	  };
+
+	$scope.status = {
+		teamInfoOpen: true,
+		playerSelectOpen: false,
+		playerSelectInProgress: false
+	};
+
 
 	//the user's team
-	$scope.team = /*{
-		name: 'My Team',
-		tag: 'MT',
-		logo: 'http://cdn.dota2.com/apps/dota2/images/heroes/rubick_full.png?v=2918132?v=2918132',
-		sponsor: 'Volvo',
-		roster: [],
-		captain: 6
-	};*/{
+	$scope.input = {
 		name: '',
-		tag: '',
-		logo: 'http://esgnetwork.weebly.com/uploads/2/8/0/2/28020395/6620151_orig.png',
 		sponsor: '',
+		logo: '',
 		roster: [],
-		captain: 5
+		captin: 0
+	}; 
+	$scope.team = {
+		name: '',
+		sponsor: '',
+		logo: '',
+		roster: [],
+		captin: 0
+	};
+	$scope.inputAlerts = [];
+	$scope.closeInputAlert = function(index) {
+		$scope.inputAlerts.splice(index, 1);
+	};
+	$scope.updateTeam = function() {
+		$scope.team.name = $scope.input.name;
+		$scope.team.sponsor = $scope.input.sponsor;
+		$scope.team.logo = $scope.input.logo;
+		if(!$scope.status.playerSelectInProgress) {
+			$scope.createTeam();
+			$scope.status.playerSelectInProgress = true;
+		}
+		$scope.status.playerSelectOpen = true;
 	};
 
 	var curRosterIndex = 0;
@@ -39,7 +55,6 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 			});
 		}
 	};
-	$scope.createTeam();
 
 
 

@@ -18,19 +18,23 @@
 
 			<div class="left">
 
-				<div class="teamInfo style-2">
-					<input type="text"  id="teamName" ng-model="team.name" placeholder="[enter team name]" class="" title="Enter the team name."/>
-					<br/>
-					sponsored by
-					<input type="text"  id="teamSponsor" ng-model="team.sponsor" placeholder="[enter sponsor]" class="" title="Enter the team sponsor."/> 
-					<br />
+				<div ng-if="status.playerSelectInProgress==false">
+					Please enter your team information to continue.
+				</div>
+
+				<div class="teamLogo">
 					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
-					<button class="logobtn btn btn-default " ng-click="">Choose Logo</button>
+				</div>
+
+				<div class="teamName">
+					{{team.name}}
+				</div>
+
+				<div class="teamSponsor">
+					<span ng-if="team.sponsor!=''">sponsored by</span> {{team.sponsor}}
 				</div>
 
 				<div class="rosterList">
-
-						
 				      <div ng-repeat="player in team.roster" ng-drop="true" ng-drop-success="onDropComplete($index, $data,$event)">
 				      	<div class="tile" ng-drag="true" ng-drag-data="player">
 				      		<div class="pos">
@@ -59,19 +63,44 @@
 
 				<div class="right">
 			
-			
-				<h3>Select Players for {{team.name}}:</h3>
-				<div class="tileSelect">
-					<div ng-repeat="player in allPlayers"  class="tile" ng-click="addToRoster(player)" title="Click to add to roster.">
-						<div class="pic" ><img src="{{player.picture}}" /></div>
-						<div class="info">
-							<div class="playerHandle">{{ player.handle}}</div>
-							<div class="playerName">{{ player.name }} </div>
-						</div>
-						
-					</div>
+					<accordion close-others="true">
+						<accordion-group is-open="status.teamInfoOpen">
+							<accordion-heading>
+								Team Information
+								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.teamInfoOpen, 'glyphicon-chevron-right': !status.teamInfoOpen}"></i>
+							</accordion-heading>
+							<form name="teamInput">
+								<div class="form-group">
+									<label for="teamName">Name</label>
+									<input type="text" id="teamName" ng-model="input.name" class="form-control"/>
+								</div>
+								<div class="form-group">
+									<label for="teamSponsor">Sponsor</label>	
+									<input type="text" id="teamSponsor" ng-model="input.sponsor"  class="form-control"/> 
+								</div>
+								<div class="form-group">
+									<label for="teamLogo">Logo (URL)</label>
+									<input type="url" id="teamLogo"ng-model="input.logo" class="form-control" />
+								</div>
+								<button class="btn btn-default btn-small" type="submit" ng-click="updateTeam()">Submit</button>
+							</form>
+						</accordion-group>
+						<accordion-group is-open="status.playerSelectOpen">
+							<accordion-heading>
+								Player Selection 
+								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.playerSelectOpen, 'glyphicon-chevron-right': !status.playerSelectOpen}"></i>
+							</accordion-heading>
+							<div class="tileSelect">
+								<div ng-repeat="player in allPlayers"  class="tile" ng-click="addToRoster(player)" title="Click to add to roster.">
+									<div class="pic" ><img src="{{player.picture}}" /></div>
+									<div class="info">
+										<div class="playerHandle">{{ player.handle}}</div>
+										<div class="playerName">{{ player.name }} </div>
+									</div>
+								</div>
+							</div>
+					</accordion>
 				</div>
-			</div>
 
 		</div>
 

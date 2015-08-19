@@ -4,85 +4,66 @@
 	margin-left:auto;
 	margin-right:auto;
 	font-family: 'Arial';
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .left {
-	margin: 10px;
+	width: 290px;
 	float: left;
 }
 
 .right {
-	margin: 10px;
+	width: 832px;
 	float: right;
 }
 
-.teamInfo {
-	position: relative;
-	/*top: -200px*/
-	width: 290px;
+.teamLogo {
+	width: 150px;
 	height: 150px;
-	border: solid 5px #c9c9c9;
-	border-bottom: none;
-	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 }
-
-.teamInfo input {
-	background: transparent;
-}
-
-.teamInfo img {
-	position: absolute;
-	left: 0px;
-	top: 0px;
+.teamLogo img {
 	width: 100%;
 	height: 100%;
-	opacity: .5;
-	z-index: -1;
+}
+.teamName {
+	font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+	font-size: 1.8em;
+	text-align: center;
+}
+
+.teamSponsor {
+	font-style: italic;
+	font-size: 1.2em;
+	text-align: center;
 }
 
 .rosterList {
 	width: 290px;
-	height: 560px;
 	float: left;
-	border: solid 5px #c9c9c9;
-	border-top: none;
 }
-
-.playerSelection {
-	width: 770px;
-	height: 650px;
-	border: solid 5px #c9c9c9;
-}
-
-
-
-.teamLogo img {
-	width: 350px;
-	height: 200px;
-	opacity: .5;
-}
-
 
 .tileSelect {
 	width: 800px;
-	height: 400px;
+	height: 500px;
 	float: left;
 	display: inline;
 	overflow-x: visible;
 	overflow-y: scroll;
-	border: solid 5px #c9c9c9;
 }
 
 .tile {
 	width: 240px;
-	height: 80px;
+	height: 70px;
 	margin: 5px;
 	float: left;
-	box-shadow: 2px 2px 2px 2px #001;	
+	box-shadow: 2px 2px 2px 2px #001;
 	overflow:visible;
-	position: relative;
 	color: #fff;
 	background: url('/d2tm/img/dark_fish_skin.png');
+	position: relative;
 }
 
 .tileSelect .tile {
@@ -91,15 +72,13 @@
 
 .rosterList .tile {
 	width: 265px;
-	margin-top: 10px;
 	float: none;
 	cursor: move;
-	position: relative;
 }
 
 .tile .pos {
 	width: 25px;
-	height: 80px;
+	height: 70px;
 	text-align: center;
 	float: left;
 	font-weight: bold;
@@ -108,20 +87,20 @@
 }
 
 .tile .pic {
-	width: 80px;
-	height: 80px;
+	width: 70px;
+	height: 70px;
 	float: left;
 	background-color: #fff;
 }
 
 .tile .pic img {
-	width: 80px;
-	height: 80px;
+	width: 100%;
+	height: 100%;
 }
 
 .tile .info {
-	width: 150px;
-	height: 80px;
+	width: 155px;
+	height: 70px;
 	float:left;
 	padding: 2px;
 	overflow: hidden;
@@ -139,15 +118,6 @@
 	color: #eee;
 	padding-left: 5px;
 }
-.tile .info .heroes {
-	width: 200px;
-	height: 30px;
-}
-.info .heroes img {
-	margin-left: 5px;
-	width: 50px;
-	height: 28px;
-}
 
 .pos .idx {
 	position: absolute;
@@ -157,7 +127,7 @@
 }
 
 .igl {
-	color: #11f;
+	color: #ff0;
 }
 
 /*http://stackoverflow.com/questions/1080792/how-can-i-draw-vertical-text-with-css-cross-browser*/
@@ -180,14 +150,6 @@
 }
 
 
-.logobtn {
-	position: absolute;
-	right: 20px;
-	bottom: 0px;
-	font-size: .5em;
-	opacity: .5;
-}
-
 .remove{
     position: absolute;
     top: 0px;
@@ -199,31 +161,13 @@
     text-shadow: 1px 1px 4px #001;	
 }
 
-/*http://callmenick.com/post/various-css-input-text-styles*/
-.style-2 input[type="text"] {
-  padding: 10px;
-  border: none;
-}
 
 
-#teamName {
-	font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
-	font-size: 1.8em;
-	color: #fff;
-	text-shadow: 0px 0px 10px #223;
-}
-
-#teamSponsor {
-	font-style: italic;
-	font-size: 1.2em;
-	color: #fff;
-	text-shadow: 2px 2px 3px #000;
-}
 
 [ng-drop].drag-enter {
     border: solid 5px #ff3;
 }
 
 [ng-drag].dragging {
-    opacity: 0.5;
+	opacity: .7
 }
