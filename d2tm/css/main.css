@@ -1,36 +1,80 @@
-
-
+table {
+	/*border:1px solid;*/
+	margin: 0;
+	padding: 0;
+}
+tr {
+	margin: 0;
+	padding: 0;
+}
+td {
+	/*border:1px solid;*/
+	margin: 0;
+	padding: 0;
+}
 .container {
 	width: 100%;
-	min-height: 650px;
 	margin-left:auto;
 	margin-right:auto;
 	font-family: 'Arial';
 }
 
+.teamInfo {
+	position: relative;
+	/*top: -200px*/
+	width: 350px;
+	height: 200px;
+	border: solid 5px #c9c9c9;
+	position: relative;
+}
 
-.sideBar {
+.teamInfo input {
+	background: transparent;
+}
+
+.teamInfo img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .5;
+	z-index: -1;
+}
+
+.rosterList {
 	width: 350px;
 	height: 650px;
 	float: left;
-	
+	border: solid 5px #c9c9c9;
 }
 
-.sideBar li {
+.playerSelection {
+	width: 770px;
+	height: 650px;
+	border: solid 5px #c9c9c9;
+}
+
+
+
+.teamLogo img {
+	width: 350px;
+	height: 200px;
+	opacity: .5;
+}
+
+.rosterList ul {
 	list-style-type: none;
-	list-style-position: outside;
-	counter-increment: step-counter;
 }
 
 .tileSelect {
-	width: 800px;
-	height: 650px;
+	width: 770px;
+	height: 400px;
 	float: left;
-	padding: 10px;
 	display: inline;
-	border: 1px solid;
 	overflow-x: visible;
 	overflow-y: scroll;
+	border: solid 5px #c9c9c9;
 }
 
 .tile {
@@ -46,10 +90,10 @@
 }
 
 .tileSelect .tile {
-	cursor: pointer;
+	
 }
 
-.sideBar .tile {
+.rosterList .tile {
 	width: 280px;
 	margin-top: 10px;
 	float: none;
@@ -70,11 +114,16 @@
 	height: 80px;
 	float: left;
 	background-color: #fff;
+	cursor: pointer;
 }
 
 .tile .pic img {
 	width: 80px;
 	height: 80px;
+}
+
+.rosterList .tile .pic {
+	cursor: move;
 }
 
 .tile .info {
@@ -112,7 +161,6 @@
 	top: 50%;
 	transform: translate(50%, -50%);
 	cursor: pointer;
-	alt: "Click to set captain";
 }
 
 .igl {
@@ -139,6 +187,18 @@
 }
 
 
+.logoIcon {
+	position: absolute;
+	left: 320px;
+	top: 10px;
+	cursor:pointer;
+	background-color: #00f;
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	text-shadow: 1px 1px 4px #000;
+}
+
 .remove{
     float:right;
     cursor:pointer;
@@ -151,34 +211,37 @@
     text-shadow: 1px 1px 4px #001;	
 }
 
-
-/* http://netdna.webdesignerdepot.com/uploads7/how-to-create-a-simple-css3-tooltip/tooltip_demo.html */
-.tooltip{
-	
+/*http://callmenick.com/post/various-css-input-text-styles*/
+.style-2 input[type="text"] {
+  padding: 10px;
+  border: none;
 }
-.tooltip:hover:after{
-	background: #333;
-	background: rgba(0,0,0,.8);
-	border-radius: 5px;
-	bottom: 26px;
-	color: #fff;
-	content: attr(title);
-	left: 20%;
-	padding: 5px 15px;
-	position: absolute;
-	z-index: 98;
-	width: 120px;
+
+.style-2 {
 	font-size: .8em;
+	font-style: oblique;
 }
-.tooltip:hover:before{
-	border: solid;
-	border-color: #333 transparent;
-	border-width: 6px 6px 0 6px;
-	bottom: 20px;
-	content: "";
-	left: 50%;
+
+#teamName {
+	font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+	font-size: 2em;
+	color: #fff;
+	text-shadow: 2px 2px 3px #000;
+}
+
+#teamSponsor {
+	font-style: italic;
+	font-size: 1.5em;
+	color: #fff;
+	text-shadow: 2px 2px 3px #000;
+}
+
+.prompt {
+	z-index: 100;
+	width: 400px;
+	height: 200px;
 	position: absolute;
-	z-index: 99;
+	transform: translate(100%, 100%);
+	border: 10px solid #00f;
+	box-shadow: 10px 10px 2px 2px #000;
 }
-
-

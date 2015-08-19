@@ -34,7 +34,6 @@ app.directive('d2tmPlayerSelection', function() {
 			};
 
 			scope.pictureUrl = function(player, index) {
-				console.log('http://cdn.dota2.com/apps/dota2/images/heroes/' + player.topHeroes[index]+'_sb.png');
 				return 'http://cdn.dota2.com/apps/dota2/images/heroes/' + player.topHeroes[index]+'_sb.png';
 			}
 		}

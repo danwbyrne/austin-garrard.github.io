@@ -15,30 +15,83 @@
 		<!-- main wrapper -->
 		<div class="container" ng-controller="d2tmController">
 
+			<div class="prompt" ng-if="prompt==true">
 
-			<d2tm-create-team team="inputTeam" done="createTeam()">
-		    </d2tm-create-team>
+			</div>
 
-		    <br/>
-		    <hr/>
+			<table>
 
-<p>
-			<d2tm-player-selection team="team"
-								   players="allPlayers"
-								   done="setScreen('ViewTeam')"
-								   options="sortableOptions">
-			</d2tm-player-selection>
-</p>
-			<br/>
-			<hr/>
+				<tr><td>
 
-			<p>
-			<d2tm-view-team team="team"
-							players="allPlayers"
-							done="setScreen('CreateTeam')">
-			</d2tm-view-team>
+				<div class="teamInfo style-2">
+					<input type="text"  id="teamName" ng-model="team.name" placeholder="[enter team name]" class="" title="Enter the team name."/>
+					<br/>
+					sponsored by
+					<input type="text"  id="teamSponsor" ng-model="team.sponsor" placeholder="[enter sponsor]" class="" title="Enter the team sponsor."/> 
+					<br />
+					<img src="{{team.logo}}" ng-if="team.logo!=''" />
+					<div class="logoIcon" title="Choose logo."></div>
+				</div>
 
-		</p>
+				
+
+			</td>
+			<td>
+			
+			</td>
+			</tr>
+
+			<tr><td>
+				<div class="rosterList">
+					
+					<br/>
+
+					<ul ui-sortable="sortableOptions" ng-model="team.roster">
+						
+				      <li ng-repeat="player in team.roster">
+				      	<div class="tile">
+				      		<div class="pos">
+			      				<div class="rotate" ng-if="$index==5">
+			      					coach
+			      				</div>
+			      				<div class="idx " ng-if="$index!=5" ng-class="{igl: $index==team.captain}" ng-click="setCaptain($index)" title="Make this player the captain">
+			      					{{ $index+1 }}
+			      				</div>
+				      		</div>
+					      	<div class="pic"> <img class="handle" src="{{player.picture}}" ng-if="player.picture!=''"/></div>
+					        <div class="info">
+								<div class="playerHandle">{{ player.handle}}</div>
+								<div class="playerName">{{ player.name }} </div>
+							</div>
+							<div class="remove" ng-click="removeFromRoster(player)" ng-if="!player.dummy" title="Remove from roster">
+								 x
+							</div>
+						</div>
+						
+				      </li>
+				    </ul>
+				</div>
+
+			
+				</td>
+			<td>
+			
+			
+				<h3>Select Players for {{team.name}}:</h3>
+				<div class="tileSelect">
+					<div ng-repeat="player in allPlayers"  class="tile">
+						<div class="pic" ng-click="addToRoster(player)" title="Click to add to roster."><img src="{{player.picture}}" /></div>
+						<div class="info">
+							<div class="playerHandle">{{ player.handle}}</div>
+							<div class="playerName">{{ player.name }} </div>
+						</div>
+						
+					</div>
+				</div>
+			</td></tr></table>
+
+		</div>
+
 		<!-- end main wrapper -->
 		</div>
 
