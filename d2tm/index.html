@@ -7,7 +7,7 @@
 
 		<!-- stylesheets -->
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
-		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		
 	</head>
 
@@ -16,31 +16,7 @@
 		<!-- main wrapper -->
 		<div class="container" ng-controller="d2tmController">
 
-			<script type="text/ng-template" id="modalDialog.html">
-				<div class='ng-modal' ng-show='show'>
-  <div class='ng-modal-overlay' ng-click='hideModal()'></div>
-  <div class='ng-modal-dialog' ng-style='dialogStyle'>
-    <div class='ng-modal-close' ng-click='hideModal()'>X</div>
-    <div class='ng-modal-dialog-content' ><div>
-							<h3>Enter the URL of your logo.</h3>
-						</div>
-						<div >
-							<input type="text" ng-model="logo" placeholder="logo url"/>
-						</div>
-						<div >
-							<button type="button" ng-click="hideModal()">OK</button>
-						</div></div>
-  </div>
-</div>
-		    </script>
-
-		    <modal-dialog show='modalShown' width='750px' height='60%' logo="team.logo">
-			  
-			</modal-dialog>
-
-			<table>
-
-				<tr><td>
+			<div class="left">
 
 				<div class="teamInfo style-2">
 					<input type="text"  id="teamName" ng-model="team.name" placeholder="[enter team name]" class="" title="Enter the team name."/>
@@ -49,25 +25,13 @@
 					<input type="text"  id="teamSponsor" ng-model="team.sponsor" placeholder="[enter sponsor]" class="" title="Enter the team sponsor."/> 
 					<br />
 					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
-					<button class="btn btn-default logobtn" ng-click="toggleModal()">Choose logo</button>
+					<button class="logobtn btn btn-default " ng-click="">Choose Logo</button>
 				</div>
 
-				
-
-			</td>
-			<td>
-			
-			</td>
-			</tr>
-
-			<tr><td>
 				<div class="rosterList">
-					
-					<br/>
 
-					<ul ng-model="team.roster">
 						
-				      <li ng-repeat="player in team.roster" ng-drop="true" ng-drop-success="onDropComplete($index, $data,$event)">
+				      <div ng-repeat="player in team.roster" ng-drop="true" ng-drop-success="onDropComplete($index, $data,$event)">
 				      	<div class="tile" ng-drag="true" ng-drag-data="player">
 				      		<div class="pos">
 			      				<div class="rotate" ng-if="$index==5">
@@ -87,19 +51,19 @@
 							</div>
 						</div>
 						
-				      </li>
-				    </ul>
+				      </div>
 				</div>
 
 			
-				</td>
-			<td>
+				</div>
+
+				<div class="right">
 			
 			
 				<h3>Select Players for {{team.name}}:</h3>
 				<div class="tileSelect">
-					<div ng-repeat="player in allPlayers"  class="tile">
-						<div class="pic" ng-click="addToRoster(player)" title="Click to add to roster."><img src="{{player.picture}}" /></div>
+					<div ng-repeat="player in allPlayers"  class="tile" ng-click="addToRoster(player)" title="Click to add to roster.">
+						<div class="pic" ><img src="{{player.picture}}" /></div>
 						<div class="info">
 							<div class="playerHandle">{{ player.handle}}</div>
 							<div class="playerName">{{ player.name }} </div>
@@ -107,7 +71,7 @@
 						
 					</div>
 				</div>
-			</td></tr></table>
+			</div>
 
 		</div>
 
