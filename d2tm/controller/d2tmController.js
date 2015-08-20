@@ -36,8 +36,8 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 		$scope.team.sponsor = $scope.input.sponsor;
 		$scope.team.logo = $scope.input.logo;
 		if(!$scope.status.playerSelectInProgress) {
-			$scope.createTeam();
-			$scope.status.playerSelectInProgress = true;
+			//$scope.createTeam();
+			//$scope.status.playerSelectInProgress = true;
 		}
 		$scope.status.playerSelectOpen = true;
 	};
