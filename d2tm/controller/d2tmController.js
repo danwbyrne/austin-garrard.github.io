@@ -53,11 +53,11 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 	//callback for an item dragged from the rosterList
 	//responsible for removing the item 
 	$scope.onDragRL = function(index, data, event) {
-		var dataIdx = $scope.team.roster.indexOf(data);
-		if(dataIdx > -1) {
-			$scope.team.roster.splice(dataIdx, 1);
-			$scope.rlIdx = dataIdx;
-			$scope.team.roster.splice(dataIdx, 0, {name:'',handle:'',picture:'',dummy:dataIdx+1});
+		console.log('dragRL', $scope.rlIdx, index);
+		if(index > -1) {
+			$scope.team.roster.splice(index, 1);
+			$scope.rlIdx = index;
+			$scope.team.roster.splice(index, 0, {name:'',handle:'',picture:'',dummy:index+1});
 		}
 	}
 
@@ -65,22 +65,27 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 	//responsible for adding the item to the rosterList
 	$scope.onDropRL = function(index, data, event) {
 		var dataIdx = $scope.team.roster.indexOf(data);
-		//if it's an open spot, place it there
+		console.log('dropRL', $scope.rlIdx, index, dataIdx);
+		//if open spot, place it there
 		if($scope.team.roster[index].dummy) {
 			$scope.team.roster.splice(index, 1);
 			$scope.team.roster.splice(index, 0, data);
 		}
-		else if($scope.rlIdx == -1) {
-			$scope.allPlayers.push(data);
-			$scope.allPlayers.sort(function(a,b){ 
-				return a.handle < b.handle ? -1:1; 
-			});
+		//if filled spot and item is from playerSelection, swap
+		else if($scope.rlIdx == -1 && $scope.team.roster.indexOf(data) == -1) {
+			var rlData = $scope.team.roster[index];
+			$scope.allPlayers.push(rlData);
+			$scope.allPlayers.sort(orderByHandle);
+
+			$scope.team.roster.splice(index, 1);
+			$scope.team.roster.splice(index, 0, data);
 		}
+		//if filled spot and item is from rosterList, swap
 		else {
 			var otherObj = $scope.team.roster[index];
 			$scope.team.roster[index] = data;
-        	$scope.team.roster[$scope.rlIdx] = otherObj;
-        	$scope.rlIdx = -1;
+    	$scope.team.roster[$scope.rlIdx] = otherObj;
+    	$scope.rlIdx = -1;
 		}
 	};
 
@@ -88,6 +93,7 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 	//responsible for removing the item 
 	$scope.onDragPS = function(index, data, event) {
 		var dataIdx = $scope.allPlayers.indexOf(data);
+		console.log('dragPS', index, dataIdx);
 		if(dataIdx > -1) {
 			$scope.allPlayers.splice(dataIdx, 1);
 		}
@@ -99,13 +105,9 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 		if(data.name=='')
 			return;
 		var dataIdx = $scope.allPlayers.indexOf(data);
-		if(dataIdx == -1) {
-			$scope.allPlayers.push(data);
-			$scope.allPlayers.sort(function(a,b){ 
-				return a.handle < b.handle ? -1:1; 
-			});
-			$scope.rlIdx = -1;
-		}
+		$scope.allPlayers.push(data);
+		$scope.allPlayers.sort(orderByHandle);
+		$scope.rlIdx = -1;
 	};
 
 }]);

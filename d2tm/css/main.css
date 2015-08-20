@@ -133,6 +133,7 @@ body {
     border:solid 1px #1f1;
 }
 [ng-drag].dragging {
+	background-color: #d5d5d5;
 	opacity: 1;
 	z-index: 10; /*requires data-allow-transform="false"*/
 }
