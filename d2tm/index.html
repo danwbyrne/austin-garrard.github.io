@@ -14,13 +14,9 @@
 	<body ng-app="d2tm">
 
 		<!-- main wrapper -->
-		<div class="container" ng-controller="d2tmController">
+		<div class="container panel panel-default" ng-controller="d2tmController">
 
 			<div class="left">
-
-				<div ng-if="status.playerSelectInProgress==false">
-					Please enter your team information to continue.
-				</div>
 
 				<div class="teamLogo">
 					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
@@ -64,6 +60,16 @@
 				<div class="right">
 			
 					<accordion close-others="true">
+						<accordion-group is-open="status.aboutOpen">
+							<accordion-heading>
+								Instructions
+								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.teamInfoOpen, 'glyphicon-chevron-right': !status.teamInfoOpen}"></i>
+							</accordion-heading>
+							Welcome to the Dota 2 Team Manager! <br/>
+							To begin, click 'Team Information' below and submit the needed information.<br/>
+							Then, you will be shown several players in the 'Player Selection' area. Click on a player to add them to your roster. <br/>
+							Once a player is in your roster, you can move them to a different position by clicking and dragging, make them the in-game leader by clicking the position number, or remove them by clicking the red 'x'.
+						</accordion-group>
 						<accordion-group is-open="status.teamInfoOpen">
 							<accordion-heading>
 								Team Information
@@ -121,11 +127,7 @@
 		<!-- app -->
 		<script src="app.js"></script>
 		<!-- controller -->
-		<script src="controller/d2tmController.js"></script>
-		<!-- directives -->
-		<script src="directive/d2tmCreateTeam.js"></script>
-		<script src="directive/d2tmPlayerSelection.js"></script>
-		<script src="directive/d2tmViewTeam.js"></script>		
+		<script src="controller/d2tmController.js"></script>		
 
 	</body>
 

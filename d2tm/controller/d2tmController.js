@@ -4,7 +4,8 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 
 
 	$scope.status = {
-		teamInfoOpen: true,
+		aboutOpen: true,
+		teamInfoOpen: false,
 		playerSelectOpen: false,
 		playerSelectInProgress: false
 	};
