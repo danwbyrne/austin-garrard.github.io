@@ -3,7 +3,12 @@ body {
 }
 
 .container {
-	padding-top: 20px;
+}
+
+.filler {
+	background-color: #9a0000;
+	width: 100%;
+	height: 20px;
 }
 
 
@@ -52,7 +57,7 @@ body {
 
 .playerSelection {
 	width: 800px;
-	height: 400px;
+	height: 408px;
 	float: left;
 	display: inline;
 	overflow-x: visible;
@@ -137,3 +142,4 @@ body {
 	opacity: 1;
 	z-index: 10; /*requires data-allow-transform="false"*/
 }
+

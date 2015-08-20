@@ -9,12 +9,30 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		
+		<!-- libraries -->
+		<!-- angular, angular bootstrap -->
+		<!-- http://cdn.jsdelivr.net/g/jquery@1,jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29,angularjs@1.4,angular.bootstrap@0.13.3-->
+		<script src="lib/custom-build.js"></script>
+		<!-- https://github.com/fatlinesofcode/ngDraggable -->
+		<script src="lib/ngDraggable.js"></script>
+
+		<!-- app -->
+		<script src="app.js"></script>
+		<!-- controller -->
+		<script src="controller/d2tmController.js"></script>	
+
 	</head>
 
 	<body ng-app="d2tm">
 
+		<div class="filler"></div>
+
+		<br/>
+
 		<!-- main wrapper -->
 		<div class="container" ng-controller="d2tmController">
+
+			
 
 			<div class="leftContainer panel panel-default">
 
@@ -148,23 +166,7 @@
 			</div>
 
 		<!-- end main wrapper -->
-		</div>
-
-
-
-		<!-- scripts -->
-
-		<!-- angular, angular bootstrap -->
-		<!-- http://cdn.jsdelivr.net/g/jquery@1,jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29,angularjs@1.4,angular.bootstrap@0.13.3-->
-		<script src="lib/custom-build.js"></script>
-		<!-- https://github.com/fatlinesofcode/ngDraggable -->
-		<script src="lib/ngDraggable.js"></script>
-
-
-		<!-- app -->
-		<script src="app.js"></script>
-		<!-- controller -->
-		<script src="controller/d2tmController.js"></script>		
+		</div>	
 
 	</body>
 

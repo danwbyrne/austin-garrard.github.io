@@ -53,7 +53,6 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 	//callback for an item dragged from the rosterList
 	//responsible for removing the item 
 	$scope.onDragRL = function(index, data, event) {
-		console.log('dragRL', $scope.rlIdx, index);
 		if(index > -1) {
 			$scope.team.roster.splice(index, 1);
 			$scope.rlIdx = index;
@@ -65,7 +64,6 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 	//responsible for adding the item to the rosterList
 	$scope.onDropRL = function(index, data, event) {
 		var dataIdx = $scope.team.roster.indexOf(data);
-		console.log('dropRL', $scope.rlIdx, index, dataIdx);
 		//if open spot, place it there
 		if($scope.team.roster[index].dummy) {
 			$scope.team.roster.splice(index, 1);
@@ -94,7 +92,6 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 	//responsible for removing the item 
 	$scope.onDragPS = function(index, data, event) {
 		var dataIdx = $scope.allPlayers.indexOf(data);
-		console.log('dragPS', index, dataIdx);
 		if(dataIdx > -1) {
 			$scope.allPlayers.splice(dataIdx, 1);
 		}
