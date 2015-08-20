@@ -70,9 +70,10 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 		if($scope.team.roster[index].dummy) {
 			$scope.team.roster.splice(index, 1);
 			$scope.team.roster.splice(index, 0, data);
+			$scope.rlIdx = -1;
 		}
 		//if filled spot and item is from playerSelection, swap
-		else if($scope.rlIdx == -1 && $scope.team.roster.indexOf(data) == -1) {
+		else if($scope.rlIdx == -1) {
 			var rlData = $scope.team.roster[index];
 			$scope.allPlayers.push(rlData);
 			$scope.allPlayers.sort(orderByHandle);
