@@ -1,6 +1,26 @@
 
 var app = angular.module('d2tm', ['ui.bootstrap', 'ngDraggable']);
 
+app.factory("teamInfo", function() {
+	return [
+		{
+			name: 'Evil Genuises',
+			logo: 'logo_eg.png',
+			confirmed: ['Arteezy', 'Sumail', 'UNiVeRsE', 'Fear', 'ppd']
+		},
+		{
+			name: 'Virtus Pro',
+			logo: 'logo_vp.png',
+			confirmed: ['Illidan', 'God', 'DkPhobos', 'Lil', 'fng']
+		},
+		{
+			name: 'Vega Squadron',
+			logo: 'logo_vega.png',
+			confirmed: ['9pashaebashu', 'No[o]ne', 'Mag', 'Solo', 'CemaTheSlayeR']
+		}
+	];
+});
+
 
 app.factory("playerInfo", function() {
 	return [

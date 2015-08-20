@@ -11,6 +11,13 @@ body {
 	height: 20px;
 }
 
+.btn-group {
+	width: 100%;
+}
+.btn-group button{
+	width: 100%;
+}
+
 
 /******************/
 
@@ -110,6 +117,9 @@ body {
 .rosterList .tile {
 	width: 265px;
 	float: none;
+}
+.rosterList .confirmed {
+	background-color: #00e500;
 }
 .rosterList .tile .pos {
 	width: 25px;

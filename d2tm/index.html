@@ -36,23 +36,31 @@
 
 			<div class="leftContainer panel panel-default">
 
+				<div class="btn-group" dropdown is-open="status.teamDropdownOpen">
+		      <button id="single-button" type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
+		        Select Team <span class="caret"></span>
+		      </button>
+		      <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+		        <li role="menuitem" ng-repeat="t in allTeams">
+		        	<a ng-click="changeTeam($index)" href="#">{{t.name}}</a>
+		        </li>
+		      </ul>
+		    </div>
+
 				<div class="teamLogo">
-					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
+					<img ng-src="/d2tm/img/{{team.logo}}" ng-if="team.logo!=''" />
 				</div>
 
 				<div class="teamName">
 					{{team.name}}
 				</div>
 
-				<div class="teamSponsor">
-					<span ng-if="team.sponsor!=''">sponsored by</span> {{team.sponsor}}
-				</div>
-
 				<div class="rosterList" >
 
 			      <div ng-repeat="player in team.roster">
 
-			      	<div class="tile well" ng-drop="true" ng-drop-success="onDropRL($index, $data,$event)" 
+			      	<div class="tile well" ng-class="{confirmed: player.confirmed}"
+			      												 ng-drop="true" ng-drop-success="onDropRL($index, $data,$event)" 
 			      												 ng-drag="true" ng-drag-data="player" ng-drag-success="onDragRL($index, $data, $event)">
 			      		
 			      		<div class="pos">
@@ -62,7 +70,7 @@
 			      		</div>
 
 				      	<div class="pic" > 
-				      		<img src="{{player.picture}}" ng-if="player.picture!=''"/>
+				      		<img ng-src="{{player.picture}}" ng-if="player.picture!=''"/>
 				      	</div>
 
 				        <div class="info">
@@ -146,7 +154,7 @@
 									 data-allow-transform="false" ng-drag-success="onDragPS($index,$data,$event)">
 								
 								<div class="pic" >
-									<img src="{{player.picture}}" />
+									<img ng-src="{{player.picture}}" />
 								</div>
 
 								<div class="info">

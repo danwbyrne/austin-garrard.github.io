@@ -1,32 +1,51 @@
-app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playerInfo) {
+app.controller('d2tmController', ['$scope', 'playerInfo', 'teamInfo', function($scope, playerInfo, teamInfo) {
 
 	/* --- DATA --- */
 
-	//the team
-	$scope.team = {
-		name: '',
-		sponsor: '',
-		logo: 'https://raw.github.com/paralin/Dota2/master/Resources/Misc/dota2_logo.jpg',
-		roster: []
-	};
-	$scope.createTeam = function() {
-		for(i=0; i<5; i++) {
-			$scope.team.roster.push({
-				name: '',
-				handle: '',
-				picture: '',
-				dummy: i+1
-			});
-		}
-	};
-	$scope.createTeam();
-
+	//init
 	//the players
 	$scope.allPlayers = playerInfo;
 	var orderByHandle = function(a,b){ 
 		return a.handle < b.handle ? -1:1; 
 	};
 	$scope.allPlayers.sort(orderByHandle);
+	//the teams
+	$scope.allTeams = [];
+	for(i=0; i<teamInfo.length; i++) {
+		var team = {
+			name: teamInfo[i].name,
+			logo: teamInfo[i].logo,
+			roster: []
+		};
+
+		for(k=0; k<teamInfo[i].confirmed.length; k++) {
+			for(l=0; l<$scope.allPlayers.length; l++) {
+				if(teamInfo[i].confirmed[k] == $scope.allPlayers[l].handle) {
+					$scope.allPlayers[l].confirmed = true;
+					team.roster.push($scope.allPlayers[l]);
+					$scope.allPlayers.splice(l, 1);
+					break;
+				}
+			}
+		}
+
+		for(k=team.roster.length; k<5; k++) {
+			team.roster.push({
+				name: '',
+				handle: '',
+				picture: '',
+				dummy: i+1
+			});
+		}
+
+		$scope.allTeams.push(team);
+	}
+
+	//the team
+	$scope.curTeamIdx = 0;
+	$scope.team = $scope.allTeams[$scope.curTeamIdx];
+
+	
 
 
 	/* --- UI --- */
@@ -34,7 +53,12 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 	$scope.status = {
 		aboutOpen: true,
 		teamInfoOpen: false,
-		playerSelectOpen: false
+		playerSelectOpen: false,
+		teamDropdownOpen: false
+	};
+
+	$scope.changeTeam = function(index) {
+		$scope.team = $scope.allTeams[index];
 	};
 
 	//Team Information
@@ -54,8 +78,8 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 	//responsible for removing the item 
 	$scope.onDragRL = function(index, data, event) {
 		if(index > -1) {
-			$scope.team.roster.splice(index, 1);
 			$scope.rlIdx = index;
+			$scope.team.roster.splice(index, 1);
 			$scope.team.roster.splice(index, 0, {name:'',handle:'',picture:'',dummy:index+1});
 		}
 	}
@@ -73,18 +97,29 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 		//if filled spot and item is from playerSelection, swap
 		else if($scope.rlIdx == -1) {
 			var rlData = $scope.team.roster[index];
-			$scope.allPlayers.push(rlData);
-			$scope.allPlayers.sort(orderByHandle);
-
-			$scope.team.roster.splice(index, 1);
-			$scope.team.roster.splice(index, 0, data);
+			if(rlData.confirmed) {
+				$scope.allPlayers.push(data);
+				$scope.allPlayers.sort(orderByHandle);
+			}
+			else {
+				$scope.allPlayers.push(rlData);
+				$scope.allPlayers.sort(orderByHandle);
+				$scope.team.roster.splice(index, 1);
+				$scope.team.roster.splice(index, 0, data);
+			}
 		}
 		//if filled spot and item is from rosterList, swap
 		else {
 			var otherObj = $scope.team.roster[index];
-			$scope.team.roster[index] = data;
-    	$scope.team.roster[$scope.rlIdx] = otherObj;
-    	$scope.rlIdx = -1;
+			if(otherObj.confirmed || data.confirmed) {
+				$scope.team.roster.splice($scope.rlIdx, 1);
+				$scope.team.roster.splice($scope.rlIdx, 0, data);
+			}
+			else {
+				$scope.team.roster[index] = data;
+	    	$scope.team.roster[$scope.rlIdx] = otherObj;
+	    }
+	    $scope.rlIdx = -1;
 		}
 	};
 
@@ -102,9 +137,14 @@ app.controller('d2tmController', ['$scope', 'playerInfo', function($scope, playe
 	$scope.onDropPS = function(index, data, event) {
 		if(data.name=='')
 			return;
-		var dataIdx = $scope.allPlayers.indexOf(data);
-		$scope.allPlayers.push(data);
-		$scope.allPlayers.sort(orderByHandle);
+		if(data.confirmed) {
+			$scope.team.roster.splice($scope.rlIdx, 1);
+			$scope.team.roster.splice($scope.rlIdx, 0, data);
+		}
+		else {
+			$scope.allPlayers.push(data);
+			$scope.allPlayers.sort(orderByHandle);
+		}
 		$scope.rlIdx = -1;
 	};
 
