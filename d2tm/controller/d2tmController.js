@@ -34,7 +34,7 @@ app.controller('d2tmController', ['$scope', 'playerInfo', 'teamInfo', function($
 				name: '',
 				handle: '',
 				picture: '',
-				dummy: i+1
+				dummy: k+1
 			});
 		}
 
@@ -62,14 +62,36 @@ app.controller('d2tmController', ['$scope', 'playerInfo', 'teamInfo', function($
 	};
 
 	//Team Information
-	$scope.input = angular.copy($scope.team);
-	$scope.updateTeam = function() {
-		$scope.team.name = $scope.input.name;
-		$scope.team.sponsor = $scope.input.sponsor;
-		$scope.team.logo = $scope.input.logo;
-		$scope.status.playerSelectOpen = true;
+	$scope.input = {name:'',logo:''};
+	$scope.createTeam = function() {
+		var team = {
+			name: $scope.input.name,
+			logo: $scope.input.logo,
+			roster: []
+		};
+
+		for(k=0; k<5; k++) {
+			team.roster.push({
+				name: '',
+				handle: '',
+				picture: '',
+				dummy: k+1
+			});
+		}
+
+		$scope.allTeams.push(team);
+
+		$scope.input = {name:'',logo:''};
 	};
 
+	$scope.logoURL = function(logo) {
+		if(logo.search('http') > -1) {
+			return logo;
+		}
+		else {
+			return '/d2tm/img/'+logo;
+		}
+	}
 	
 	/* --- Drag/Drop --- */
 	$scope.rlIdx = -1;

@@ -5,17 +5,17 @@ app.factory("teamInfo", function() {
 	return [
 		{
 			name: 'Evil Genuises',
-			logo: 'logo_eg.png',
+			logo: '/d2tm/img/logo_eg.png',
 			confirmed: ['Arteezy', 'Sumail', 'UNiVeRsE', 'Fear', 'ppd']
 		},
 		{
 			name: 'Virtus Pro',
-			logo: 'logo_vp.png',
+			logo: '/d2tm/img/logo_vp.png',
 			confirmed: ['Illidan', 'God', 'DkPhobos', 'Lil', 'fng']
 		},
 		{
 			name: 'Vega Squadron',
-			logo: 'logo_vega.png',
+			logo: '/d2tm/img/logo_vega.png',
 			confirmed: ['9pashaebashu', 'No[o]ne', 'Mag', 'Solo', 'CemaTheSlayeR']
 		}
 	];
@@ -27,7 +27,7 @@ app.factory("playerInfo", function() {
 		{
 			name: 'Kurtis Ling',
 			handle: 'Aui_2000',
-			picture: 'http://live.starladder.tv/uploads/avatars/7/1/5/2/thumb_270_b49258f9f2bd5e4c59b0855e94d83c14.png'
+			picture: 'img/players/thumb_270_b49258f9f2bd5e4c59b0855e94d83c14.png'
 		},
 		{
 			name: 'Sun Zheng',

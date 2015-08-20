@@ -25,10 +25,6 @@
 
 	<body ng-app="d2tm">
 
-		<div class="filler"></div>
-
-		<br/>
-
 		<!-- main wrapper -->
 		<div class="container" ng-controller="d2tmController">
 
@@ -48,7 +44,7 @@
 		    </div>
 
 				<div class="teamLogo">
-					<img ng-src="/d2tm/img/{{team.logo}}" ng-if="team.logo!=''" />
+					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
 				</div>
 
 				<div class="teamName">
@@ -59,8 +55,7 @@
 
 			      <div ng-repeat="player in team.roster">
 
-			      	<div class="tile well" ng-class="{confirmed: player.confirmed}"
-			      												 ng-drop="true" ng-drop-success="onDropRL($index, $data,$event)" 
+			      	<div class="tile well" ng-drop="true" ng-drop-success="onDropRL($index, $data,$event)" 
 			      												 ng-drag="true" ng-drag-data="player" ng-drag-success="onDragRL($index, $data, $event)">
 			      		
 			      		<div class="pos">
@@ -77,6 +72,8 @@
 									<div class="playerHandle">{{ player.handle}}</div>
 									<div class="playerName">{{ player.name }} </div>
 								</div>
+
+								<i ng-if="player.confirmed" class="glyphicon glyphicon-ok pull-right"></i>
 
 							<!-- end tile -->	
 							</div>
@@ -98,22 +95,23 @@
 					<accordion-group is-open="status.aboutOpen">
 
 						<accordion-heading>
-							Instructions
+							About
 							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.aboutOpen, 'glyphicon-chevron-right': !status.aboutOpen}"></i>
 						</accordion-heading>
 
-						<h3>Welcome to the Dota 2 Team Manager!</h3>
-						<p>To begin, click 'Team Information' below and submit the needed information.</p>
-						<p>You will be shown several players in the 'Player Selection' area. Drag a player to a position in your roster to add them.</p>
-						<p>Once a player is in your roster, you can move them to a different position by dragging them to the desired position. Remove a player from your roster by dragging them back to the 'Player Selection' area.</p>
-				
+						<p>Speculate on which rosters pro Dota 2 players will end up on this year! Click-and-drag players to move them to and from rosters. Players that have confirmed spots on rosters have check marks and cannot be moved.</p>
+
+						<p>With the post-TI shuffle going nuts, I thought this would be a fun app to make while learning <a href="http://angularjs.org">AngularJS</a>. Let me know what you think wootasaurus@gmail.com.</p>
+
+						<p>Information was gathered manually and is not guaranteed to be accurate or up-to-date. Most player pictures are from <a href="http://starladder.tv">StarLadder</a>. Team logos are taken from their <a href="http://wiki.teamliquid.net">liquipedia</a> entries. Background art by <a href="entroz.deviantart.com">entroz</a>.</p>
+						
 					</accordion-group>
 
 					<!-- Team Information -->
 					<accordion-group is-open="status.teamInfoOpen">
 							
 						<accordion-heading>
-							Team Information
+							Create Team
 							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.teamInfoOpen, 'glyphicon-chevron-right': !status.teamInfoOpen}"></i>
 						</accordion-heading>
 
@@ -125,16 +123,11 @@
 							</div>
 
 							<div class="form-group">
-								<label for="teamSponsor">Sponsor</label>	
-								<input type="text" id="teamSponsor" ng-model="input.sponsor"  class="form-control"/> 
-							</div>
-
-							<div class="form-group">
 								<label for="teamLogo">Logo (URL)</label>
 								<input type="url" id="teamLogo"ng-model="input.logo" class="form-control" />
 							</div>
 
-							<button class="btn btn-default btn-small" type="submit" ng-click="updateTeam()">Submit</button>
+							<button class="btn btn-default btn-small" type="submit" ng-click="createTeam()">Submit</button>
 
 						</form>
 
@@ -144,7 +137,7 @@
 					<accordion-group is-open="status.playerSelectOpen">
 							
 						<accordion-heading>
-							Player Selection 
+							Free Agents
 							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.playerSelectOpen, 'glyphicon-chevron-right': !status.playerSelectOpen}"></i>
 						</accordion-heading>
 							
