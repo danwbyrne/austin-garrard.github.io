@@ -31,81 +31,121 @@
 				</div>
 
 				<div class="rosterList" >
-				      <div ng-repeat="player in team.roster">
-				      	<div class="tile well" ng-drop="true" ng-drop-success="onDropRL($index, $data,$event)" ng-drag="true" ng-drag-data="player" ng-drag-success="onDragRL($index, $data, $event)">
-				      		<div class="pos">
-			      				<div class="idx" ng-if="$index==5">
-			      					C
-			      				</div>
-			      				<div class="idx " ng-if="$index!=5">
-			      					{{ $index+1 }}
-			      				</div>
-				      		</div>
-					      	<div class="pic" > <img src="{{player.picture}}" ng-if="player.picture!=''"/></div>
-					        <div class="info">
-								<div class="playerHandle">{{ player.handle}}</div>
-								<div class="playerName">{{ player.name }} </div>
+
+			      <div ng-repeat="player in team.roster">
+
+			      	<div class="tile well" ng-drop="true" ng-drop-success="onDropRL($index, $data,$event)" 
+			      												 ng-drag="true" ng-drag-data="player" ng-drag-success="onDragRL($index, $data, $event)">
+			      		
+			      		<div class="pos">
+		      				<div class="idx">
+		      					{{ $index+1 }}
+		      				</div>
+			      		</div>
+
+				      	<div class="pic" > 
+				      		<img src="{{player.picture}}" ng-if="player.picture!=''"/>
+				      	</div>
+
+				        <div class="info">
+									<div class="playerHandle">{{ player.handle}}</div>
+									<div class="playerName">{{ player.name }} </div>
+								</div>
+
+							<!-- end tile -->	
 							</div>
+
+						<!-- end ng-repeat -->	
+			      </div>
+
+			  <!-- end rosterList -->    
+				</div>
+
+			<!-- end left -->
+			</div>
+
+			<div class="right">
+			
+				<accordion close-others="true">
+
+					<!-- Instructions -->
+					<accordion-group is-open="status.aboutOpen">
+
+						<accordion-heading>
+							Instructions
+							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.aboutOpen, 'glyphicon-chevron-right': !status.aboutOpen}"></i>
+						</accordion-heading>
+
+						<h3>Welcome to the Dota 2 Team Manager!</h3>
+						<p>To begin, click 'Team Information' below and submit the needed information.</p>
+						<p>You will be shown several players in the 'Player Selection' area, as well as a blank roster. Drag a player to an empty position in your roster to add them.</p>
+						<p>Once a player is in your roster, you can move them to a different position by dragging them to the desired position. If a player is already in that position, the two players will be swapped.</p>
+				
+					</accordion-group>
+
+					<!-- Team Information -->
+					<accordion-group is-open="status.teamInfoOpen">
+							
+						<accordion-heading>
+							Team Information
+							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.teamInfoOpen, 'glyphicon-chevron-right': !status.teamInfoOpen}"></i>
+						</accordion-heading>
+
+						<form name="teamInput">
+
+							<div class="form-group">
+								<label for="teamName">Name</label>
+								<input type="text" id="teamName" ng-model="input.name" class="form-control"/>
+							</div>
+
+							<div class="form-group">
+								<label for="teamSponsor">Sponsor</label>	
+								<input type="text" id="teamSponsor" ng-model="input.sponsor"  class="form-control"/> 
+							</div>
+
+							<div class="form-group">
+								<label for="teamLogo">Logo (URL)</label>
+								<input type="url" id="teamLogo"ng-model="input.logo" class="form-control" />
+							</div>
+
+							<button class="btn btn-default btn-small" type="submit" ng-click="updateTeam()">Submit</button>
+
+						</form>
+
+					</accordion-group>
+					
+					<!-- Player Selection -->
+					<accordion-group is-open="status.playerSelectOpen">
+							
+						<accordion-heading>
+							Player Selection 
+							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.playerSelectOpen, 'glyphicon-chevron-right': !status.playerSelectOpen}"></i>
+						</accordion-heading>
+							
+						<div class="tileSelect" ng-drop="true" ng-drop-success="onDropPS($index, $data,$event)">
+							
+							<div ng-repeat="player in allPlayers"  class="tile well" ng-drag="true" ng-drag-data="player" 
+									 data-allow-transform="false" ng-drag-success="onDragPS($index,$data,$event)">
+								
+								<div class="pic" >
+									<img src="{{player.picture}}" />
+								</div>
+
+								<div class="info">
+									<div class="playerHandle">{{ player.handle}}</div>
+									<div class="playerName">{{ player.name }} </div>
+								</div>
+
+							</div>
+
+						<!-- end ng-repeat -->	
 						</div>
-						
-				      </div>
-				</div>
-
+					</accordion-group>
+					
+				</accordion>
 			
-				</div>
-
-				<div class="right">
-			
-					<accordion close-others="true">
-						<accordion-group is-open="status.aboutOpen">
-							<accordion-heading>
-								Instructions
-								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.aboutOpen, 'glyphicon-chevron-right': !status.aboutOpen}"></i>
-							</accordion-heading>
-								<h3>Welcome to the Dota 2 Team Manager!</h3>
-								<p>To begin, click 'Team Information' below and submit the needed information.</p>
-								<p>You will be shown several players in the 'Player Selection' area, as well as a blank roster. Drag a player to an empty position in your roster to add them.</p>
-								<p>Once a player is in your roster, you can move them to a different position by dragging them to the desired position. If a player is already in that position, the two players will be swapped.</p>
-						</accordion-group>
-						<accordion-group is-open="status.teamInfoOpen">
-							<accordion-heading>
-								Team Information
-								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.teamInfoOpen, 'glyphicon-chevron-right': !status.teamInfoOpen}"></i>
-							</accordion-heading>
-							<form name="teamInput">
-								<div class="form-group">
-									<label for="teamName">Name</label>
-									<input type="text" id="teamName" ng-model="input.name" class="form-control"/>
-								</div>
-								<div class="form-group">
-									<label for="teamSponsor">Sponsor</label>	
-									<input type="text" id="teamSponsor" ng-model="input.sponsor"  class="form-control"/> 
-								</div>
-								<div class="form-group">
-									<label for="teamLogo">Logo (URL)</label>
-									<input type="url" id="teamLogo"ng-model="input.logo" class="form-control" />
-								</div>
-								<button class="btn btn-default btn-small" type="submit" ng-click="updateTeam()">Submit</button>
-							</form>
-						</accordion-group>
-						<accordion-group is-open="status.playerSelectOpen">
-							<accordion-heading>
-								Player Selection 
-								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.playerSelectOpen, 'glyphicon-chevron-right': !status.playerSelectOpen}"></i>
-							</accordion-heading>
-							<div class="tileSelect" ng-drop="true" ng-drop-success="onDropPS($index, $data,$event)">
-								<div ng-repeat="player in allPlayers"  class="tile well" ng-drag="true" ng-drag-data="player" data-allow-transform="false" ng-drag-success="onDragPS($index,$data,$event)">
-									<div class="pic" ><img src="{{player.picture}}" /></div>
-									<div class="info">
-										<div class="playerHandle">{{ player.handle}}</div>
-										<div class="playerName">{{ player.name }} </div>
-									</div>
-								</div>
-							</div>
-					</accordion>
-				</div>
-
-		</div>
+			<!-- end right -->
+			</div>
 
 		<!-- end main wrapper -->
 		</div>
@@ -115,7 +155,7 @@
 		<!-- scripts -->
 
 		<!-- angular, angular bootstrap -->
-		<!-- http://cdn.jsdelivr.net/g/jquery@1,jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29,angularjs@1.4,angular.bootstrap@0.13.3,angular.ui-sortable -->
+		<!-- http://cdn.jsdelivr.net/g/jquery@1,jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29,angularjs@1.4,angular.bootstrap@0.13.3-->
 		<script src="lib/custom-build.js"></script>
 		<!-- https://github.com/fatlinesofcode/ngDraggable -->
 		<script src="lib/ngDraggable.js"></script>
