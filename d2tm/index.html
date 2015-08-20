@@ -30,23 +30,22 @@
 					<span ng-if="team.sponsor!=''">sponsored by</span> {{team.sponsor}}
 				</div>
 
-				<div class="rosterList">
-				      <div ng-repeat="player in team.roster" ng-drop="true" ng-drop-success="onDropComplete($index, $data,$event)">
-				      	<div class="tile well" ng-drag="true" ng-drag-data="player">
+				<div class="rosterList" >
+				      <div ng-repeat="player in team.roster" >
+				      	<div class="tile well" ng-drop="true" ng-drop-success="onDropRL($index, $data,$event)" ng-drag="true" ng-drag-data="player" ng-drag-success="onDragRL($index, $data, $event)">
 				      		<div class="pos">
-			      				<div class="rotate" ng-if="$index==5">
-			      					coach
+			      				<div class="idx" ng-if="$index==5">
+			      					C
 			      				</div>
-			      				<div class="idx " ng-if="$index!=5" ng-class="{igl: $index==team.captain}" ng-click="setCaptain($index)" title="Make this player the captain">
+			      				<div class="idx " ng-if="$index!=5">
 			      					{{ $index+1 }}
 			      				</div>
 				      		</div>
-					      	<div class="pic" > <img class="handle" src="{{player.picture}}" ng-if="player.picture!=''"/></div>
+					      	<div class="pic" > <img src="{{player.picture}}" ng-if="player.picture!=''"/></div>
 					        <div class="info">
 								<div class="playerHandle">{{ player.handle}}</div>
 								<div class="playerName">{{ player.name }} </div>
 							</div>
-							<i class="pull-left glyphicon glyphicon-remove remove" ng-click="removeFromRoster(player)"></i>
 						</div>
 						
 				      </div>
@@ -94,8 +93,8 @@
 								Player Selection 
 								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.playerSelectOpen, 'glyphicon-chevron-right': !status.playerSelectOpen}"></i>
 							</accordion-heading>
-							<div class="tileSelect">
-								<div ng-repeat="player in allPlayers"  class="tile well" ng-click="addToRoster(player)" title="Click to add to roster.">
+							<div class="tileSelect" ng-drop="true" ng-drop-success="onDropPS($index, $data,$event)">
+								<div ng-repeat="player in allPlayers"  class="tile well" ng-drag="true" ng-drag-data="player" data-allow-transform="false" ng-drag-success="onDragPS($index,$data,$event)">
 									<div class="pic" ><img src="{{player.picture}}" /></div>
 									<div class="info">
 										<div class="playerHandle">{{ player.handle}}</div>

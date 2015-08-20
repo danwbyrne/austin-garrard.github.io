@@ -68,7 +68,7 @@ body {
 }
 
 .tileSelect .tile {
-	cursor: pointer;
+	cursor: move;
 }
 
 .rosterList .tile {
@@ -92,7 +92,7 @@ body {
 	width: 62px;
 	height: 62px;
 	float: left;
-	background-color: #f5f5f5;
+	background: transparent;
 }
 
 .tile .pic img {
@@ -144,7 +144,7 @@ body {
   -moz-transform-origin: 150% 150%;
   -ms-transform-origin: 150% 150%;
   -o-transform-origin: 150% 150%;
-  transform-origin: 125% 150%;
+  transform-origin: 90% 125%;
 
   /* Should be unset in IE9+ I think. */
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
@@ -153,10 +153,15 @@ body {
 
 
 
-[ng-drop].drag-enter {
-    border: solid 5px #ff3;
+.rosterList [ng-drop].drag-enter {
+    background-color: #d5d5d5;
+}
+
+[ng-drag].drag-over{
+    border:solid 1px #1f1;
 }
 
 [ng-drag].dragging {
 	opacity: 1;
+	z-index: 10;
 }

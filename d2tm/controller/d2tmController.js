@@ -17,14 +17,14 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 		sponsor: '',
 		logo: '',
 		roster: [],
-		captin: 0
+		captain: 0
 	}; 
 	$scope.team = {
 		name: '',
 		sponsor: '',
 		logo: '',
 		roster: [],
-		captin: 0
+		captain: 0
 	};
 	$scope.inputAlerts = [];
 	$scope.closeInputAlert = function(index) {
@@ -64,13 +64,57 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 		return a.handle < b.handle ? -1:1; 
 	});
 
+	$scope.onDragRL = function(index, data, event) {
+		var dataIdx = $scope.team.roster.indexOf(data);
+		if(dataIdx > -1) {
+			$scope.team.roster.splice(dataIdx, 1);
+			$scope.rlIdx = dataIdx;
+			$scope.team.roster.splice(dataIdx, 0, {name:'',handle:'',picture:'',dummy:dataIdx+1});
+		}
+	}
+	$scope.rlIdx = -1;
+
 	//Player Selection
-	$scope.onDropComplete = function(index, data, event) {
-		var otherObj = $scope.team.roster[index];
-        var otherIndex = $scope.team.roster.indexOf(data);
-        $scope.team.roster[index] = data;
-        $scope.team.roster[otherIndex] = otherObj;
+	$scope.onDropRL = function(index, data, event) {
+		var dataIdx = $scope.team.roster.indexOf(data);
+		if($scope.team.roster[index].dummy) {
+			$scope.team.roster.splice(index, 1);
+			$scope.team.roster.splice(index, 0, data);
+		}
+		else if($scope.rlIdx == -1) {
+			$scope.allPlayers.push(data);
+			$scope.allPlayers.sort(function(a,b){ 
+				return a.handle < b.handle ? -1:1; 
+			});
+		}
+		else {
+			var otherObj = $scope.team.roster[index];
+			$scope.team.roster[index] = data;
+        	$scope.team.roster[$scope.rlIdx] = otherObj;
+        	$scope.rlIdx = -1;
+		}
 	};
+
+	$scope.onDragPS = function(index, data, event) {
+		var dataIdx = $scope.allPlayers.indexOf(data);
+		if(dataIdx > -1) {
+			$scope.allPlayers.splice(dataIdx, 1);
+		}
+	}
+	
+	$scope.onDropPS = function(index, data, event) {
+		if(data.name=='')
+			return;
+		var dataIdx = $scope.allPlayers.indexOf(data);
+		if(dataIdx == -1) {
+			$scope.allPlayers.push(data);
+			$scope.allPlayers.sort(function(a,b){ 
+				return a.handle < b.handle ? -1:1; 
+			});
+			$scope.rlIdx = -1;
+		}
+	};
+
 
 	$scope.addToRoster = function(player) {
 		for(i=0; i<6; i++) {
