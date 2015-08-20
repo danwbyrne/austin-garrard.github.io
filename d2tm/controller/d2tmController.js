@@ -20,9 +20,9 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 		captain: 0
 	}; 
 	$scope.team = {
-		name: '____',
-		sponsor: '__',
-		logo: '',
+		name: '',
+		sponsor: '',
+		logo: 'https://raw.github.com/paralin/Dota2/master/Resources/Misc/dota2_logo.jpg',
 		roster: [],
 		captain: 0
 	};
