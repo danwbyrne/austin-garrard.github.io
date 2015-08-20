@@ -16,7 +16,7 @@
 		<!-- main wrapper -->
 		<div class="container" ng-controller="d2tmController">
 
-			<div class="left panel panel-default">
+			<div class="leftContainer panel panel-default">
 
 				<div class="teamLogo">
 					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
@@ -64,7 +64,7 @@
 			<!-- end left -->
 			</div>
 
-			<div class="right">
+			<div class="rightContainer">
 			
 				<accordion close-others="true">
 
@@ -122,7 +122,7 @@
 							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.playerSelectOpen, 'glyphicon-chevron-right': !status.playerSelectOpen}"></i>
 						</accordion-heading>
 							
-						<div class="tileSelect" ng-drop="true" ng-drop-success="onDropPS($index, $data,$event)">
+						<div class="playerSelection" ng-drop="true" ng-drop-success="onDropPS($index, $data,$event)">
 							
 							<div ng-repeat="player in allPlayers"  class="tile well" ng-drag="true" ng-drag-data="player" 
 									 data-allow-transform="false" ng-drag-success="onDragPS($index,$data,$event)">
