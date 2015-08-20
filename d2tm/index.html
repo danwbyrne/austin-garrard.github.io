@@ -3,7 +3,7 @@
 <html>
 
 	<head>
-		<title> Dota2 Team Manager </title>
+		<title> Dota 2 Team Manager </title>
 
 		<!-- stylesheets -->
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -14,9 +14,9 @@
 	<body ng-app="d2tm">
 
 		<!-- main wrapper -->
-		<div class="container panel panel-default" ng-controller="d2tmController">
+		<div class="container" ng-controller="d2tmController">
 
-			<div class="left">
+			<div class="left panel panel-default">
 
 				<div class="teamLogo">
 					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
@@ -31,7 +31,7 @@
 				</div>
 
 				<div class="rosterList" >
-				      <div ng-repeat="player in team.roster" >
+				      <div ng-repeat="player in team.roster">
 				      	<div class="tile well" ng-drop="true" ng-drop-success="onDropRL($index, $data,$event)" ng-drag="true" ng-drag-data="player" ng-drag-success="onDragRL($index, $data, $event)">
 				      		<div class="pos">
 			      				<div class="idx" ng-if="$index==5">

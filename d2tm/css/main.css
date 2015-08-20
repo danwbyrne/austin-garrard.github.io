@@ -10,13 +10,13 @@ body {
 .left {
 	width: 290px;
 	float: left;
-	padding-top: 20px;
+	margin-top: 20px;
 }
 
 .right {
 	width: 832px;
 	float: right;
-	padding-top: 20px;
+	margin-top: 20px;
 }
 
 .teamLogo {
@@ -71,12 +71,18 @@ body {
 	cursor: move;
 }
 
+.rosterList .item {
+	margin-right: auto;
+	margin-right: auto;
+}
+
 .rosterList .tile {
 	width: 265px;
 	float: none;
 	cursor: move;
-	margin-right: 0 !important;
 }
+
+
 
 .tile .pos {
 	width: 25px;

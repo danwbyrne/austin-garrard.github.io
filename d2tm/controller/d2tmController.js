@@ -20,12 +20,13 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 		captain: 0
 	}; 
 	$scope.team = {
-		name: '',
-		sponsor: '',
+		name: '____',
+		sponsor: '__',
 		logo: '',
 		roster: [],
 		captain: 0
 	};
+
 	$scope.inputAlerts = [];
 	$scope.closeInputAlert = function(index) {
 		$scope.inputAlerts.splice(index, 1);
@@ -56,7 +57,7 @@ app.controller('d2tmController', ['$scope', 'playerInfo', '$modal',
 			});
 		}
 	};
-
+	$scope.createTeam();
 
 
 	$scope.allPlayers = playerInfo;
