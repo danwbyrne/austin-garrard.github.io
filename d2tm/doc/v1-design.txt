@@ -120,7 +120,7 @@ Functionality:
 
 ----------------------------------------------------
 
-New Detailed Requirements (per task 7)):
+New Detailed Requirements (as of August 19):
 	1) A small area with the following inputs:
 		a) Team name
 		b) team sponsor

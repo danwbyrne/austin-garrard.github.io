@@ -47,7 +47,19 @@ Tuesday, August 18, 2015
 			d) delete unneeded files
 
 Wednesday, August 19, 2015
-	TODO:
-		
 	Tasks complete:
-		-7)
+		-7), 3), 1), 2)
+
+	Notes: 
+		-used bootstrap accordion with following sections:
+			-Instructions
+			-Team Information
+			-Player Selection
+
+Thursday, August 19, 2015
+	Tasks complete:
+		-4)
+
+	Notes:
+		-applied final tweaks to styling
+		-project complete
