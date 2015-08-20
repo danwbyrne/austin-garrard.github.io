@@ -32,7 +32,7 @@
 
 				<div class="rosterList">
 				      <div ng-repeat="player in team.roster" ng-drop="true" ng-drop-success="onDropComplete($index, $data,$event)">
-				      	<div class="tile" ng-drag="true" ng-drag-data="player">
+				      	<div class="tile well" ng-drag="true" ng-drag-data="player">
 				      		<div class="pos">
 			      				<div class="rotate" ng-if="$index==5">
 			      					coach
@@ -46,9 +46,7 @@
 								<div class="playerHandle">{{ player.handle}}</div>
 								<div class="playerName">{{ player.name }} </div>
 							</div>
-							<div class="remove" ng-click="removeFromRoster(player)" ng-if="!player.dummy" title="Remove from roster">
-								 x
-							</div>
+							<i class="pull-left glyphicon glyphicon-remove remove" ng-click="removeFromRoster(player)"></i>
 						</div>
 						
 				      </div>
@@ -63,12 +61,12 @@
 						<accordion-group is-open="status.aboutOpen">
 							<accordion-heading>
 								Instructions
-								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.teamInfoOpen, 'glyphicon-chevron-right': !status.teamInfoOpen}"></i>
+								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.aboutOpen, 'glyphicon-chevron-right': !status.aboutOpen}"></i>
 							</accordion-heading>
-							Welcome to the Dota 2 Team Manager! <br/>
-							To begin, click 'Team Information' below and submit the needed information.<br/>
-							Then, you will be shown several players in the 'Player Selection' area. Click on a player to add them to your roster. <br/>
-							Once a player is in your roster, you can move them to a different position by clicking and dragging, make them the in-game leader by clicking the position number, or remove them by clicking the red 'x'.
+								<h3>Welcome to the Dota 2 Team Manager!</h3>
+								<p>To begin, click 'Team Information' below and submit the needed information.</p>
+								<p>Then, you will be shown several players in the 'Player Selection' area. Click on a player to add them to your roster.</p>
+								<p>Once a player is in your roster, you can move them to a different position by clicking and dragging, make them the in-game leader by clicking the position number, or remove them by clicking the red 'x'.</p>
 						</accordion-group>
 						<accordion-group is-open="status.teamInfoOpen">
 							<accordion-heading>
@@ -97,7 +95,7 @@
 								<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.playerSelectOpen, 'glyphicon-chevron-right': !status.playerSelectOpen}"></i>
 							</accordion-heading>
 							<div class="tileSelect">
-								<div ng-repeat="player in allPlayers"  class="tile" ng-click="addToRoster(player)" title="Click to add to roster.">
+								<div ng-repeat="player in allPlayers"  class="tile well" ng-click="addToRoster(player)" title="Click to add to roster.">
 									<div class="pic" ><img src="{{player.picture}}" /></div>
 									<div class="info">
 										<div class="playerHandle">{{ player.handle}}</div>

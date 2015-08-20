@@ -5,9 +5,6 @@ body {
 
 .container {
 	min-height: 660px;
-	border: 1px #446 solid;
-	border-top: none;
-	/*border-radius: 2px;*/
 }
 
 .left {
@@ -61,12 +58,12 @@ body {
 .tile {
 	width: 240px;
 	height: 65px;
-	margin: 5px;
+	margin: 5px !important;
+	padding: 1px !important;
 	float: left;
-	box-shadow: 2px 2px 2px 2px #001;
+	/*box-shadow: 2px 2px 2px 2px #001;*/
 	overflow:visible;
-	color: #fff;
-	background: url('/d2tm/img/dark_fish_skin.png');
+	/*background: url('/d2tm/img/dark_fish_skin.png');*/
 	position: relative;
 }
 
@@ -78,6 +75,7 @@ body {
 	width: 265px;
 	float: none;
 	cursor: move;
+	margin-right: 0 !important;
 }
 
 .tile .pos {
@@ -91,10 +89,10 @@ body {
 }
 
 .tile .pic {
-	width: 65px;
-	height: 65px;
+	width: 62px;
+	height: 62px;
 	float: left;
-	background-color: #fff;
+	background-color: #f5f5f5;
 }
 
 .tile .pic img {
@@ -119,7 +117,6 @@ body {
 .tile .info .playerName {
 	font-style: italic;
 	font-size: .9em;
-	color: #eee;
 	padding-left: 5px;
 }
 
@@ -154,18 +151,6 @@ body {
 }
 
 
-.remove{
-    position: absolute;
-    top: 0px;
-    right: 2px;
-    cursor:pointer;
-    color: #f00;
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 1px 1px 4px #001;	
-}
-
-
 
 
 [ng-drop].drag-enter {
@@ -173,5 +158,5 @@ body {
 }
 
 [ng-drag].dragging {
-	opacity: .7
+	opacity: 1;
 }
