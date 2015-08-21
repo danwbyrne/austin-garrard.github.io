@@ -18,6 +18,7 @@ app.controller('d2tmController', ['$scope', 'playerInfo', 'teamInfo', function($
 			roster: []
 		};
 
+
 		for(k=0; k<teamInfo[i].confirmed.length; k++) {
 			for(l=0; l<$scope.allPlayers.length; l++) {
 				if(teamInfo[i].confirmed[k] == $scope.allPlayers[l].handle) {
@@ -28,6 +29,17 @@ app.controller('d2tmController', ['$scope', 'playerInfo', 'teamInfo', function($
 				}
 			}
 		}
+
+		for(k=0; k<teamInfo[i].rumored.length; k++) {
+			for(l=0; l<$scope.allPlayers.length; l++) {
+				if(teamInfo[i].rumored[k] == $scope.allPlayers[l].handle) {
+					$scope.allPlayers[l].confirmed = false;
+					team.roster.push($scope.allPlayers[l]);
+					$scope.allPlayers.splice(l, 1);
+					break;
+				}
+			}
+		}		
 
 		for(k=team.roster.length; k<5; k++) {
 			team.roster.push({
@@ -133,14 +145,8 @@ app.controller('d2tmController', ['$scope', 'playerInfo', 'teamInfo', function($
 		//if filled spot and item is from rosterList, swap
 		else {
 			var otherObj = $scope.team.roster[index];
-			if(otherObj.confirmed || data.confirmed) {
-				$scope.team.roster.splice($scope.rlIdx, 1);
-				$scope.team.roster.splice($scope.rlIdx, 0, data);
-			}
-			else {
-				$scope.team.roster[index] = data;
-	    	$scope.team.roster[$scope.rlIdx] = otherObj;
-	    }
+			$scope.team.roster[index] = data;
+    	$scope.team.roster[$scope.rlIdx] = otherObj;
 	    $scope.rlIdx = -1;
 		}
 	};

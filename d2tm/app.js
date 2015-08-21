@@ -6,17 +6,62 @@ app.factory("teamInfo", function() {
 		{
 			name: 'Evil Genuises',
 			logo: '/d2tm/img/logo_eg.png',
-			confirmed: ['Arteezy', 'Sumail', 'UNiVeRsE', 'Fear', 'ppd']
+			confirmed: ['Arteezy', 'SumaiL', 'UNiVeRsE', 'Fear', 'ppd'],
+			rumored: []
 		},
 		{
 			name: 'Virtus Pro',
 			logo: '/d2tm/img/logo_vp.png',
-			confirmed: ['Illidan', 'God', 'DkPhobos', 'Lil', 'fng']
+			confirmed: ['Illidan', 'God', 'DkPhobos', 'Lil', 'fng'],
+			rumored: []
 		},
 		{
 			name: 'Vega Squadron',
 			logo: '/d2tm/img/logo_vega.png',
-			confirmed: ['9pashaebashu', 'No[o]ne', 'Mag', 'Solo', 'CemaTheSlayeR']
+			confirmed: ['9pashaebashu', 'No[o]one', 'Mag', 'Solo', 'CemaTheSlayeR'],
+			rumored: []
+		},
+		{
+			name: 'Ninjas in Pyjamas',
+			logo: '/d2tm/img/logo_nip.png',
+			confirmed: ['Era', 'Limmp', 'jonassomfan', 'Handsken', 'Sealkid'] ,
+			rumored: []
+		},
+		{
+			name: 'CDEC',
+			logo: '/d2tm/img/logo_cdec.png',
+			confirmed: ['Agressif', 'Shiki', 'Xz', 'Q', 'garder'],
+			rumored: []
+		},
+		{
+			name: 'German Stack',
+			logo: '/d2tm/img/logo_german_stack.png',
+			confirmed: [],
+			rumored: ['KuroKy', 'FATA-']
+		},
+		{
+			name: 'Team Theeban',
+			logo: '/d2tm/img/logo_1437.gif',
+			confirmed: ['1437'],
+			rumored: []
+		},
+		{
+			name: 'Team Secret',
+			logo: '/d2tm/img/logo_secret.jpeg',
+			confirmed: [],
+			rumored: ['Puppey', 's4']
+		},
+		{
+			name: 'fnatic',
+			logo: '/d2tm/img/logo_fnatic.png',
+			confirmed: ['Mushi', 'Ohaiyo'],
+			rumored: []
+		},
+		{
+			name: 'Not Good Enough for EG',
+			logo: '/d2tm/img/logo_saddandy.png',
+			confirmed: ['Aui_2000', 'Bulba'],
+			rumored: ['TC', 'Yawar', 'Biryu']
 		}
 	];
 });
@@ -27,12 +72,12 @@ app.factory("playerInfo", function() {
 		{
 			name: 'Kurtis Ling',
 			handle: 'Aui_2000',
-			picture: 'img/players/thumb_270_b49258f9f2bd5e4c59b0855e94d83c14.png'
+			picture: '/d2tm/img/players/Aui_2000.png'
 		},
 		{
 			name: 'Sun Zheng',
 			handle: 'Agressif',
-			picture: 'https://cdn0.gamesports.net/storage/75000/75829.jpg'
+			picture: '/d2tm/img/players/Agressif.jpg'
 		},
 		{
 			name: 'Clement Ivanov',
@@ -158,6 +203,148 @@ app.factory("playerInfo", function() {
 			name: 'Airat Gaziev',
 			handle: 'Silent',
 			picture: 'http://live.starladder.tv/uploads/avatars/9/a/4/4/thumb_270_178edc191e327759c3123dc6c9328174.png'
-		}
+		},
+		{
+			name: 'Syed Hassan',
+			handle: 'SumaiL',
+			picture: '/d2tm/img/players/SumaiL.png'
+		},
+		{
+			name: 'Saahil Arora',
+			handle: 'UNiVeRsE',
+			picture: '/d2tm/img/players/UNiVeRsE.png'
+		},
+		{
+			name: 'Ilya Pivcaev',
+			handle: 'Illidan',
+			picture: '/d2tm/img/players/Illidan.png'
+		},
+		{
+			name: 'Alexander Kucheria',
+			handle: 'DkPhobos',
+			picture: '/d2tm/img/players/DkPhobos.png'
+		},
+		{
+			name: 'Ilya Ilyuk',
+			handle: 'Lil',
+			picture: '/d2tm/img/players/Lil.png'
+		},
+		{
+			name: 'Artsiom Barshack',
+			handle: 'fng',
+			picture: '/d2tm/img/players/fng.png'
+		},
+		{
+			name: 'Pavel Hvastunov',
+			handle: '9pashaebashu',
+			picture: 'none'
+		},
+		{
+			name: 'Vladimir Minenko',
+			handle: 'No[o]one',
+			picture: 'none'
+		},
+		{
+			name: 'Andrey Chipenko',
+			handle: 'Mag',
+			picture: '/d2tm/img/players/Mag.png'
+		},
+		{
+			name: 'Alexei Berezin',
+			handle: 'Solo',
+			picture: '/d2tm/img/players/Solo.png'
+		},
+		{
+			name: 'Semion Krivulya',
+			handle: 'CemaTheSlayeR',
+			picture: 'none'
+		},
+		{
+			name: 'Adrian Kryeziu',
+			handle: 'Era',
+			picture: '/d2tm/img/players/Era.png'
+		},
+		{
+			name: 'Linus Blomdin',
+			handle: 'Limmp',
+			picture: '/d2tm/img/players/Limmp.png'
+		},
+		{
+			name: 'Jonas Lindholm',
+			handle: 'jonassomfan',
+			picture: '/d2tm/img/players/jonassomfan.png'
+		},
+		{
+			name: 'Simon Haag',
+			handle: 'Handsken',
+			picture: '/d2tm/img/players/Handsken.png'
+		},
+		{
+			name: 'Elias Merta',
+			handle: 'Sealkid',
+			picture: '/d2tm/img/players/Sealkid.png'
+		},
+		{
+			name: 'Huang Jiwei',
+			handle: 'Shiki',
+			picture: '/d2tm/img/players/Shiki.jpg'
+		},
+		{
+			name: 'Chen Zezhi',
+			handle: 'Xz',
+			picture: '/d2tm/img/players/Xz.jpg'
+		},
+		{
+			name: 'Fu Bin',
+			handle: 'Q',
+			picture: '/d2tm/img/players/Q.png'
+		},
+		{
+			name: 'Liu Xinzhou',
+			handle: 'garder',
+			picture: '/d2tm/img/players/garder.png'
+		},
+		{
+			name: 'Adrian Trinks',
+			handle: 'FATA-',
+			picture: '/d2tm/img/players/FATA-.jpeg'
+		},
+		{
+			name: 'Theeban Siba',
+			handle: '1437',
+			picture: '/d2tm/img/logo_1437.gif'
+		},
+		{
+			name: 'Chong Xin Khoo',
+			handle: 'Ohaiyo',
+			picture: '/d2tm/img/players/Ohaiyo.jpg'
+		},
+		{
+			name: 'Kanishka Sosale',
+			handle: 'Bulba',
+			picture: '/d2tm/img/players/Bulba.jpg'
+		},
+		{
+			name: 'Tyler Cook',
+			handle: 'TC',
+			picture: '/d2tm/img/players/TC.jpg'
+		},
+		{
+			name: 'Steven Ashworth',
+			handle: 'Korok',
+			picture: '/d2tm/img/players/Korok.jpg'
+		},
+		{
+			name: 'Michael Ghannam',
+			handle: 'ixmike88',
+			picture: '/d2tm/img/players/ixmike88.jpg'
+		},
+		{
+			name: 'Dominik Reitmeier',
+			handle: 'Black^',
+			picture: '/d2tm/img/players/Black^.jpeg'
+		},
+
+
 	];
 });
