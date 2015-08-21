@@ -1,5 +1,5 @@
 
-var app = angular.module('d2tm', ['ui.bootstrap', 'ngDraggable']);
+var app = angular.module('d2tm', ['ui.bootstrap', 'ngDraggable', 'ngStorage']);
 
 app.factory("teamInfo", function() {
 	return [

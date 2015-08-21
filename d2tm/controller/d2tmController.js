@@ -1,57 +1,80 @@
-app.controller('d2tmController', ['$scope', 'playerInfo', 'teamInfo', function($scope, playerInfo, teamInfo) {
+app.controller('d2tmController', ['$scope', 'playerInfo', 'teamInfo', '$localStorage', function($scope, playerInfo, teamInfo, $localStorage) {
 
 	/* --- DATA --- */
 
-	//init
-	//the players
-	$scope.allPlayers = playerInfo;
-	var orderByHandle = function(a,b){ 
-		return a.handle < b.handle ? -1:1; 
-	};
-	$scope.allPlayers.sort(orderByHandle);
-	//the teams
-	$scope.allTeams = [];
-	for(i=0; i<teamInfo.length; i++) {
-		var team = {
-			name: teamInfo[i].name,
-			logo: teamInfo[i].logo,
-			roster: []
-		};
-
-
-		for(k=0; k<teamInfo[i].confirmed.length; k++) {
-			for(l=0; l<$scope.allPlayers.length; l++) {
-				if(teamInfo[i].confirmed[k] == $scope.allPlayers[l].handle) {
-					$scope.allPlayers[l].confirmed = true;
-					team.roster.push($scope.allPlayers[l]);
-					$scope.allPlayers.splice(l, 1);
-					break;
-				}
-			}
-		}
-
-		for(k=0; k<teamInfo[i].rumored.length; k++) {
-			for(l=0; l<$scope.allPlayers.length; l++) {
-				if(teamInfo[i].rumored[k] == $scope.allPlayers[l].handle) {
-					$scope.allPlayers[l].confirmed = false;
-					team.roster.push($scope.allPlayers[l]);
-					$scope.allPlayers.splice(l, 1);
-					break;
-				}
-			}
-		}		
-
-		for(k=team.roster.length; k<5; k++) {
-			team.roster.push({
-				name: '',
-				handle: '',
-				picture: '',
-				dummy: k+1
-			});
-		}
-
-		$scope.allTeams.push(team);
+	$scope.$storage = $localStorage;
+	if($scope.$storage.saved) {
+		//load
+		$scope.allPlayers = $scope.$storage.allPlayers;
+		$scope.allTeams = $scope.$storage.allTeams;
 	}
+	else {
+		//init
+		//the players
+		$scope.allPlayers = playerInfo;
+		var orderByHandle = function(a,b){ 
+			return a.handle < b.handle ? -1:1; 
+		};
+		$scope.allPlayers.sort(orderByHandle);
+		//the teams
+		$scope.allTeams = [];
+		for(i=0; i<teamInfo.length; i++) {
+			var team = {
+				name: teamInfo[i].name,
+				logo: teamInfo[i].logo,
+				roster: []
+			};
+
+
+			for(k=0; k<teamInfo[i].confirmed.length; k++) {
+				for(l=0; l<$scope.allPlayers.length; l++) {
+					if(teamInfo[i].confirmed[k] == $scope.allPlayers[l].handle) {
+						$scope.allPlayers[l].confirmed = true;
+						team.roster.push($scope.allPlayers[l]);
+						$scope.allPlayers.splice(l, 1);
+						break;
+					}
+				}
+			}
+
+			for(k=0; k<teamInfo[i].rumored.length; k++) {
+				for(l=0; l<$scope.allPlayers.length; l++) {
+					if(teamInfo[i].rumored[k] == $scope.allPlayers[l].handle) {
+						$scope.allPlayers[l].confirmed = false;
+						team.roster.push($scope.allPlayers[l]);
+						$scope.allPlayers.splice(l, 1);
+						break;
+					}
+				}
+			}		
+
+			for(k=team.roster.length; k<5; k++) {
+				team.roster.push({
+					name: '',
+					handle: '',
+					picture: '',
+					dummy: k+1
+				});
+			}
+
+			$scope.allTeams.push(team);
+		}
+		$scope.$storage.allTeams = $scope.allTeams;
+		$scope.$storage.allPlayers = $scope.allPlayers;
+		$scope.$storage.saved = true;
+	}
+
+
+	//storage
+	/*$scope.$storage.$default({
+		allTeams: $scope.allTeams,
+		allPlayers: $scope.allPlayers
+	});*/
+	/*$scope.save = function() {
+		$scope.$storage.allTeams = $scope.allTeams;
+		$scope.$storage.allPlayers = $scope.allPlayers;
+		$scope.$storage.saved = true;
+	}*/
 
 	//the team
 	$scope.curTeamIdx = 0;
@@ -65,6 +88,7 @@ app.controller('d2tmController', ['$scope', 'playerInfo', 'teamInfo', function($
 	$scope.status = {
 		aboutOpen: true,
 		teamInfoOpen: false,
+		optionsOpen: false,
 		playerSelectOpen: false,
 		teamDropdownOpen: false
 	};
