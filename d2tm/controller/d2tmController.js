@@ -1,4 +1,4 @@
-app.controller('d2tmController', ['$scope', 'defaultPlayers', 'defaultTeams', function($scope, defaultPlayers, defaultTeams) {
+app.controller('d2tmController', ['$scope', '$modal', 'defaultPlayers', 'defaultTeams', function($scope, $modal, defaultPlayers, defaultTeams) {
 
 	/* --- DATA --- */
 
@@ -105,6 +105,7 @@ app.controller('d2tmController', ['$scope', 'defaultPlayers', 'defaultTeams', fu
 
 	$scope.removePlayer = function() {
 		$scope.allPlayers.splice($scope.input.playerToRemove, 1);
+		$scope.team = $scope.allTeams[0];
 	}
 	
 
@@ -150,6 +151,7 @@ app.controller('d2tmController', ['$scope', 'defaultPlayers', 'defaultTeams', fu
 		playerToRemove: 0
 	};
 
+	//CRUD
 	$scope.changeTeam = function(index) {
 		$scope.team = $scope.allTeams[index];
 	};
@@ -179,6 +181,26 @@ app.controller('d2tmController', ['$scope', 'defaultPlayers', 'defaultTeams', fu
 		$scope.input.playerToRemove = index;
 	}
 
+	//confirm delete
+	$scope.confirmDelete = function(team) {
+		var modalInstance = $modal.open({
+			animation: true,
+			templateUrl: 'confirmDeleteModal.html',
+			controller: 'ConfirmDeleteCtrl',
+			resolve: {
+				itemName: function() {
+					return team? $scope.allTeams[$scope.input.teamToRemove].name : $scope.allPlayers[$scope.input.playerToRemove].handle;
+				}
+			}
+		});
+
+		modalInstance.result.then(function() {
+			if(team)
+				$scope.removeTeam();
+			else
+				$scope.removePlayer();
+		});
+	}
 	
 	
 
@@ -272,4 +294,15 @@ app.controller('d2tmController', ['$scope', 'defaultPlayers', 'defaultTeams', fu
 		$scope.rlIdx = -1;
 	};
 
+}]);
+
+
+app.controller('ConfirmDeleteCtrl', ['$scope', '$modalInstance', 'itemName', function($scope, $modalInstance, itemName) {
+	$scope.itemName = itemName;
+	$scope.ok = function() {
+		$modalInstance.close();
+	}
+	$scope.cancel = function() {
+		$modalInstance.dismiss('cancel');
+	}
 }]);
