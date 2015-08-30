@@ -18,8 +18,12 @@
 
 		<!-- app -->
 		<script src="app.js"></script>
+		<!-- services -->
+		<script src="service/defaultTeams.js"></script>
+		<script src="service/defaultPlayers.js"></script>
 		<!-- controller -->
 		<script src="controller/d2tmController.js"></script>	
+
 
 	</head>
 
@@ -32,16 +36,16 @@
 
 			<div class="leftContainer panel panel-default">
 
-				<div class="btn-group" dropdown is-open="status.teamDropdownOpen">
-		      <button id="single-button" type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
-		        Select Team <span class="caret"></span>
-		      </button>
-		      <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
-		        <li role="menuitem" ng-repeat="t in allTeams">
-		        	<a ng-click="changeTeam($index)" href="#">{{t.name}}</a>
-		        </li>
-		      </ul>
-		    </div>
+				<div class="btn-group " dropdown is-open="status.teamDropdownOpen">
+			      <button id="single-button" type="button" class="btn btn-default select-team" dropdown-toggle ng-disabled="disabled">
+			        Select Team &nbsp;<span class="caret"></span>
+			      </button>
+			      <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+			        <li role="menuitem" ng-repeat="t in allTeams">
+			        	<a ng-click="changeTeam($index)" href="">{{t.name}}</a>
+			        </li>
+			      </ul>
+			    </div>
 
 				<div class="teamLogo">
 					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
@@ -108,31 +112,120 @@
 						
 					</accordion-group>
 
-					<!-- Team Information -->
-					<accordion-group is-open="status.teamInfoOpen">
+					<!-- Teams -->
+					<accordion-group is-open="status.teamsOpen">
 							
 						<accordion-heading>
-							Create Team
+							Teams
 							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.teamInfoOpen, 'glyphicon-chevron-right': !status.teamInfoOpen}"></i>
 						</accordion-heading>
 
-						<form name="teamInput">
+						<!-- Add Team -->
+						<h4><u>Add Team</u></h4>
+
+						<form name="addTeamForm" class="form-horizontal" >
 
 							<div class="form-group">
-								<label for="teamName">Name</label>
-								<input type="text" id="teamName" ng-model="input.name" class="form-control"/>
+								<label for="teamName" class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-5">
+									<input type="text" id="teamName" ng-model="input.name" class="form-control"/>
+								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="teamLogo">Logo (URL)</label>
-								<input type="url" id="teamLogo"ng-model="input.logo" class="form-control" />
+								<label for="teamLogo" class="col-sm-2 control-label">Logo (URL)</label>
+								<div class="col-sm-5">
+									<input type="url" id="teamLogo"ng-model="input.logo" class="form-control" />
+								</div>
 							</div>
 
-							<button class="btn btn-default btn-small" type="submit" ng-click="createTeam()">Submit</button>
+							<div class="form-group">
+								<div class="col-sm-2"></div>
+								<div class="col-sm-5">
+									<button class="btn btn-primary" type="submit" ng-click="createTeam()">Add</button>
+								</div>
+							</div>
+
+						</form>
+
+						<hr />
+
+						<!-- Edit Team -->
+						<h4><u>Edit Team</u></h4>
+
+						<form name="editTeamForm" class="form-horizontal" novalidate>
+
+							<div class="form-group">
+								<label for="selectTeam" class="col-sm-2 control-label">Select Team</label>
+								<div class="btn-group col-sm-5" dropdown is-open="status.selectTeamToEdit" id="selectTeam">
+									<button id="selectTeamBtn" type="button" class="btn btn-default select-team" dropdown-toggle ng-disabled="disabled">
+										{{allTeams[input.teamToEdit.index].name}}&nbsp;<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="selectTeamBtn">
+										<li role="menuitem" ng-repeat="team in allTeams">
+											<a ng-click="selectTeamToEdit($index)" href="">{{team.name}}</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="teamName" class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-5">
+									<input type="text" id="teamName" ng-model="input.teamToEdit.name" class="form-control"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="teamLogo" class="col-sm-2 control-label">Logo (URL)</label>
+								<div class="col-sm-5">
+									<input type="url" id="teamLogo"ng-model="input.teamToEdit.logo" class="form-control" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-2"></div>
+								<div class="col-sm-5">
+									<button class="btn btn-primary" type="submit" ng-click="editTeam()">Edit</button>
+								</div>
+							</div>
+
+						</form>
+
+						<hr />
+
+						<!-- Remove Team -->
+						<h4><u>Remove Team</u></h4>
+
+						<form name="editTeamForm" class="form-horizontal">
+
+							<div class="form-group">
+								<label for="selectTeam" class="col-sm-2 control-label">Select Team</label>
+								<div class="btn-group col-sm-5" dropdown is-open="status.selectTeamToRemove" id="selectTeam">
+									<button id="selectTeamBtn" type="button" class="btn btn-default select-team" dropdown-toggle ng-disabled="disabled">
+										{{allTeams[input.teamToRemove].name}}&nbsp;<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="selectTeamBtn">
+										<li role="menuitem" ng-repeat="team in allTeams">
+											<a ng-click="selectTeamToRemove($index)" href="">{{team.name}}</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-2"></div>
+								<div class="col-sm-5">
+									<button class="btn btn-primary" type="submit" ng-click="removeTeam()">Remove</button>
+								</div>
+							</div>
 
 						</form>
 
 					</accordion-group>
+
+					<!-- Players -->
+
 					
 					<!-- Player Selection -->
 					<accordion-group is-open="status.playerSelectOpen">

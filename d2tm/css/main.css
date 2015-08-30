@@ -1,19 +1,12 @@
-body {
-	background: url('/d2tm/img/bg.png');
-}
+
 
 .container {
 	padding-top: 20px;
 }
 
-
-.btn-group {
+.select-team {
 	width: 100%;
 }
-.btn-group button{
-	width: 100%;
-}
-
 
 /******************/
 
