@@ -1,14 +1,11 @@
 app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultPlayers', 'defaultTeams', function($scope, $modal, $localStorage, defaultPlayers, defaultTeams) {
 
 	/* --- DATA --- */
-	
-	var orderByHandle = function(a,b){ 
-		return a.handle < b.handle ? -1:1; 
-	};
-	
+
 	var loadDefaults = function() {
 		$scope.allPlayers = defaultPlayers;
-		$scope.allPlayers.sort(orderByHandle);
+		for(i=0; i<$scope.allPlayers.length; i++)
+			$scope.allPlayers[i].assigned = false;
 
 		$scope.allTeams = [];
 		for(i=0; i<defaultTeams.length; i++) {
@@ -23,8 +20,8 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 				for(l=0; l<$scope.allPlayers.length; l++) {
 					if(defaultTeams[i].confirmed[k] == $scope.allPlayers[l].handle) {
 						$scope.allPlayers[l].confirmed = true;
-						team.roster.push($scope.allPlayers[l]);
-						$scope.allPlayers.splice(l, 1);
+						$scope.allPlayers[l].assigned = true;
+						team.roster.push(l);
 						break;
 					}
 				}
@@ -34,20 +31,15 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 				for(l=0; l<$scope.allPlayers.length; l++) {
 					if(defaultTeams[i].rumored[k] == $scope.allPlayers[l].handle) {
 						$scope.allPlayers[l].confirmed = false;
-						team.roster.push($scope.allPlayers[l]);
-						$scope.allPlayers.splice(l, 1);
+						$scope.allPlayers[l].assigned = true;
+						team.roster.push(l);
 						break;
 					}
 				}
 			}		
 
 			for(k=team.roster.length; k<5; k++) {
-				team.roster.push({
-					name: '',
-					handle: '',
-					picture: '',
-					dummy: k+1
-				});
+				team.roster.push(k);
 			}
 
 			$scope.allTeams.push(team);
@@ -64,7 +56,7 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 		loadDefaults();
 		$scope.$storage.allPlayers = $scope.allPlayers;
 		$scope.$storage.allTeams = $scope.allTeams;
-		$scope.$storage.saved = true;
+		//$scope.$storage.saved = true;
 	}
 
 	//the team
@@ -82,17 +74,12 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 		};
 
 		for(k=0; k<5; k++) {
-			team.roster.push({
-				name: '',
-				handle: '',
-				picture: '',
-				dummy: k+1
-			});
+			team.roster.push(k);
 		}
 
 		$scope.allTeams.push(team);
 
-		$scope.input = {name:'',logo:''};
+		$scope.input.teamToCreate = {name:'',logo:''};
 	};
 
 	$scope.editTeam = function() {
@@ -108,7 +95,6 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 	$scope.createPlayer = function() {
 		var player = angular.copy($scope.input.playerToCreate);
 		$scope.allPlayers.push(player);
-		$scope.allPlayers.sort(orderByHandle);
 	}
 
 	$scope.editPlayer = function() {
@@ -126,12 +112,16 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 
 	/* --- UI --- */
 
+	$scope.playerSelectionFilter = function(element) {
+		return !element.assigned && element.name != '';
+	}
+
 	//dropdown, accordion status
 	$scope.status = {
 		aboutOpen: false,
 		teamsOpen: false,
-		playersOpen: true,
-		playerSelectOpen: false,
+		playersOpen: false,
+		playerSelectOpen: true,
 		teamDropdownOpen: false,
 		selectTeamToEdit: false,
 		selectTeamToRemove: false,
@@ -246,40 +236,38 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 		if(index > -1) {
 			$scope.rlIdx = index;
 			$scope.team.roster.splice(index, 1);
-			$scope.team.roster.splice(index, 0, {name:'',handle:'',picture:'',dummy:index+1});
+			$scope.team.roster.splice(index, 0, index);
 		}
 	}
 
 	//callback for the rosterList when an item is dropped inside
 	//responsible for adding the item to the rosterList
 	$scope.onDropRL = function(index, data, event) {
-		var dataIdx = $scope.team.roster.indexOf(data);
-		//if open spot, place it there
-		if($scope.team.roster[index].dummy) {
-			$scope.team.roster.splice(index, 1);
-			$scope.team.roster.splice(index, 0, data);
-			$scope.rlIdx = -1;
-		}
+		var dataIdx = $scope.allPlayers.indexOf(data);
+
 		//if filled spot and item is from playerSelection, swap
-		else if($scope.rlIdx == -1) {
+		if($scope.rlIdx == -1) {
 			var rlData = $scope.team.roster[index];
-			if(rlData.confirmed) {
-				$scope.allPlayers.push(data);
-				$scope.allPlayers.sort(orderByHandle);
+			if($scope.allPlayers[rlData].confirmed) {
+				data.assigned = false;
 			}
 			else {
-				$scope.allPlayers.push(rlData);
-				$scope.allPlayers.sort(orderByHandle);
+				$scope.allPlayers[rlData].assigned = false;
 				$scope.team.roster.splice(index, 1);
-				$scope.team.roster.splice(index, 0, data);
+				$scope.team.roster.splice(index, 0, dataIdx);
 			}
 		}
 		//if filled spot and item is from rosterList, swap
 		else {
 			var otherObj = $scope.team.roster[index];
 			$scope.team.roster[index] = data;
-    	$scope.team.roster[$scope.rlIdx] = otherObj;
-	    $scope.rlIdx = -1;
+	    	$scope.team.roster[$scope.rlIdx] = otherObj;
+		    $scope.rlIdx = -1;
+		    for(i=0; i<5; i++) {
+		    	if($scope.team.roster[i] < 5) {
+		    		$scope.team.roster[i] = i;
+		    	}
+		    }
 		}
 	};
 
@@ -288,24 +276,31 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 	$scope.onDragPS = function(index, data, event) {
 		var dataIdx = $scope.allPlayers.indexOf(data);
 		if(dataIdx > -1) {
-			$scope.allPlayers.splice(dataIdx, 1);
+			data.assigned = true;
 		}
 	}
 	
 	//callback for the playerSelection when an item is dropped inside
 	//responsible for adding the item
 	$scope.onDropPS = function(index, data, event) {
-		if(data.name=='')
-			return;
-		if(data.confirmed) {
-			$scope.team.roster.splice($scope.rlIdx, 1);
-			$scope.team.roster.splice($scope.rlIdx, 0, data);
+		if(Number(data) == data) {
+			if($scope.allPlayers[data].dummy) {
+				//do nothing
+			}
+			else if($scope.allPlayers[data].confirmed) {
+				$scope.team.roster.splice($scope.rlIdx, 1);
+				$scope.team.roster.splice($scope.rlIdx, 0, data);
+			}
+			else {
+				$scope.allPlayers[data].assigned = false;
+				$scope.team.roster.splice($scope.rlIdx, 1);
+				$scope.team.roster.splice($scope.rlIdx, 0, $scope.rlIdx);
+			}
+			$scope.rlIdx = -1;
 		}
 		else {
-			$scope.allPlayers.push(data);
-			$scope.allPlayers.sort(orderByHandle);
+			data.assigned = false;
 		}
-		$scope.rlIdx = -1;
 	};
 
 }]);

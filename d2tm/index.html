@@ -71,16 +71,16 @@
 			      		</div>
 
 				      	<div class="pic" > 
-				      		<img ng-src="{{player.picture}}" ng-if="player.picture!='' && player.picture!='none'"/>
-				      		<i class="glyphicon glyphicon-question-sign" ng-if="player.picture=='none'"></i>
+				      		<img ng-src="{{allPlayers[player].picture}}" ng-if="allPlayers[player].picture!='' && allPlayers[player].picture!='none'"/>
+				      		<i class="glyphicon glyphicon-question-sign" ng-if="allPlayers[player].picture=='none'"></i>
 				      	</div>
 
 				        <div class="info">
-									<div class="playerHandle">{{ player.handle}}</div>
-									<div class="playerName">{{ player.name }} </div>
+									<div class="playerHandle">{{ allPlayers[player].handle}}</div>
+									<div class="playerName">{{ allPlayers[player].name }} </div>
 								</div>
 
-								<i ng-if="player.confirmed" class="glyphicon glyphicon-ok pull-right"></i>
+								<i ng-if="allPlayers[player].confirmed" class="glyphicon glyphicon-ok pull-right"></i>
 
 							<!-- end tile -->	
 							</div>
@@ -362,7 +362,7 @@
 							
 						<div class="playerSelection" ng-drop="true" ng-drop-success="onDropPS($index, $data,$event)">
 							
-							<div ng-repeat="player in allPlayers"  class="tile well" ng-drag="true" ng-drag-data="player" 
+							<div ng-repeat="player in allPlayers | filter: playerSelectionFilter | orderBy: 'handle' "  class="tile well" ng-drag="true" ng-drag-data="player" 
 									 data-allow-transform="false" ng-drag-success="onDragPS($index,$data,$event)">
 								
 								<div class="pic" >

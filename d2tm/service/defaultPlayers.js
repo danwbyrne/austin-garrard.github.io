@@ -1,6 +1,36 @@
 app.factory("defaultPlayers", function() {
 	return [
 		{
+			name: '',
+			handle: '',
+			picture: '',
+			dummy: 0
+		},
+		{
+			name: '',
+			handle: '',
+			picture: '',
+			dummy: 1
+		},
+		{
+			name: '',
+			handle: '',
+			picture: '',
+			dummy: 2
+		},
+		{
+			name: '',
+			handle: '',
+			picture: '',
+			dummy: 3
+		},
+		{
+			name: '',
+			handle: '',
+			picture: '',
+			dummy: 4
+		},
+		{
 			name: 'Kurtis Ling',
 			handle: 'Aui_2000',
 			picture: '/d2tm/img/players/Aui_2000.png'
