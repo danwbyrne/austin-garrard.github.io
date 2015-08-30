@@ -39,7 +39,7 @@
 			<div class="leftContainer panel panel-default">
 
 				<div class="btn-group " dropdown is-open="status.teamDropdownOpen">
-			      <button id="single-button" type="button" class="btn btn-default select-team" dropdown-toggle ng-disabled="disabled">
+			      <button id="single-button" type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled">
 			        Select Team &nbsp;<span class="caret"></span>
 			      </button>
 			      <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
@@ -163,8 +163,8 @@
 									<button id="selectTeamBtn" type="button" class="btn btn-default select-team" dropdown-toggle ng-disabled="disabled">
 										{{allTeams[input.teamToEdit.index].name}}&nbsp;<span class="caret"></span>
 									</button>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="selectTeamBtn">
-										<li role="menuitem" ng-repeat="team in allTeams">
+									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectTeamBtn">
+										<li role="menuitem" ng-repeat="team in allTeams | orderBy: 'name'">
 											<a ng-click="selectTeamToEdit($index)" href="">{{team.name}}</a>
 										</li>
 									</ul>
@@ -207,8 +207,8 @@
 									<button id="selectTeamBtn" type="button" class="btn btn-default select-team" dropdown-toggle ng-disabled="disabled">
 										{{allTeams[input.teamToRemove].name}}&nbsp;<span class="caret"></span>
 									</button>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="selectTeamBtn">
-										<li role="menuitem" ng-repeat="team in allTeams">
+									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectTeamBtn">
+										<li role="menuitem" ng-repeat="team in allTeams | orderBy: 'name'">
 											<a ng-click="selectTeamToRemove($index)" href="">{{team.name}}</a>
 										</li>
 									</ul>
@@ -282,8 +282,8 @@
 									<button id="selectPlayerBtn" type="button" class="btn btn-default select-player" dropdown-toggle ng-disabled="disabled">
 										{{allPlayers[input.playerToEdit.index].handle}}&nbsp;<span class="caret"></span>
 									</button>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="selectPlayerBtn">
-										<li role="menuitem" ng-repeat="player in allPlayers">
+									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectPlayerBtn">
+										<li role="menuitem" ng-repeat="player in allPlayers | filter: playersFilter | orderBy: 'handle'">
 											<a ng-click="selectPlayerToEdit($index)" href="">{{player.handle}}</a>
 										</li>
 									</ul>
@@ -333,8 +333,8 @@
 									<button id="selectPlayerBtn" type="button" class="btn btn-default select-player" dropdown-toggle ng-disabled="disabled">
 										{{allPlayers[input.playerToRemove].handle}}&nbsp;<span class="caret"></span>
 									</button>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="selectPlayerBtn">
-										<li role="menuitem" ng-repeat="player in allPlayers">
+									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectPlayerBtn">
+										<li role="menuitem" ng-repeat="player in allPlayers | filter: playersFilter | orderBy: 'handle'">
 											<a ng-click="selectPlayerToRemove($index)" href="">{{player.handle}}</a>
 										</li>
 									</ul>

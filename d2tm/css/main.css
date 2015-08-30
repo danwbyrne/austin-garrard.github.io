@@ -6,10 +6,6 @@ body {
 	padding-top: 20px;
 }
 
-.select-team {
-	width: 100%;
-}
-
 /******************/
 
 .leftContainer {
@@ -49,6 +45,12 @@ body {
 .rosterList {
 	width: 290px;
 	float: left;
+}
+.leftContainer .btn-group {
+	width: 100%;
+}
+.leftContainer .btn {
+	width: 100%;
 }
 
 /* rightContainer */
@@ -106,7 +108,7 @@ body {
 }
 /* rosterList-specific player tiles */
 .rosterList .tile {
-	width: 265px;
+	width: 275px;
 	float: none;
 }
 .rosterList .confirmed {
@@ -125,7 +127,6 @@ body {
 	position: absolute;
 	top: 50%;
 	transform: translate(50%, -50%);
-	cursor: pointer;
 }
 .rosterList .tile .glyphicon-ok {
 	color: #0f0;
@@ -147,3 +148,10 @@ body {
 	z-index: 10; /*requires data-allow-transform="false"*/
 }
 
+
+/* menus */
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}

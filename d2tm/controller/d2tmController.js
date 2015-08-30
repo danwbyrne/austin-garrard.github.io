@@ -112,6 +112,10 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 
 	/* --- UI --- */
 
+	$scope.playersFilter = function(element) {
+		return element.name != '';
+	}
+
 	$scope.playerSelectionFilter = function(element) {
 		return !element.assigned && element.name != '';
 	}
