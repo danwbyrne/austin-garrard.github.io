@@ -57,18 +57,97 @@ app.controller('d2tmController', ['$scope', 'defaultPlayers', 'defaultTeams', fu
 	$scope.curTeamIdx = 0;
 	$scope.team = $scope.allTeams[$scope.curTeamIdx];
 
+
+
+	//Team CRUD
+	$scope.createTeam = function() {
+		var team = {
+			name: $scope.input.teamToCreate.name,
+			logo: $scope.input.teamToCreate.logo,
+			roster: []
+		};
+
+		for(k=0; k<5; k++) {
+			team.roster.push({
+				name: '',
+				handle: '',
+				picture: '',
+				dummy: k+1
+			});
+		}
+
+		$scope.allTeams.push(team);
+
+		$scope.input = {name:'',logo:''};
+	};
+
+	$scope.editTeam = function() {
+		$scope.allTeams[$scope.input.teamToEdit.index].name = $scope.input.teamToEdit.name;
+		$scope.allTeams[$scope.input.teamToEdit.index].logo = $scope.input.teamToEdit.logo;
+	}
+
+	$scope.removeTeam = function() {
+		$scope.allTeams.splice($scope.input.teamToRemove, 1);
+	}
+
+	//Player CRUD
+	$scope.createPlayer = function() {
+		var player = angular.copy($scope.input.playerToCreate);
+		$scope.allPlayers.push(player);
+		$scope.allPlayers.sort(orderByHandle);
+	}
+
+	$scope.editPlayer = function() {
+		$scope.allPlayers[$scope.input.playerToEdit.index].name = $scope.input.playerToEdit.name;
+		$scope.allPlayers[$scope.input.playerToEdit.index].handle = $scope.input.playerToEdit.handle;
+		$scope.allPlayers[$scope.input.playerToEdit.index].logo = $scope.input.playerToEdit.logo;
+	}
+
+	$scope.removePlayer = function() {
+		$scope.allPlayers.splice($scope.input.playerToRemove, 1);
+	}
 	
 
 
 	/* --- UI --- */
 
+	//dropdown, accordion status
 	$scope.status = {
 		aboutOpen: false,
-		teamsOpen: true,
+		teamsOpen: false,
+		playersOpen: true,
 		playerSelectOpen: false,
 		teamDropdownOpen: false,
 		selectTeamToEdit: false,
-		selectTeamToRemove: false
+		selectTeamToRemove: false,
+		selectPlayerToEdit: false,
+		selectPlayerToRemove: false
+	};
+
+	//User input
+	$scope.input = {
+		teamToCreate: {
+			name:'',
+			logo:''
+		},
+		teamToEdit: {
+			index: 0,
+			name: $scope.allTeams[0].name,
+			logo: $scope.allTeams[0].logo
+		},
+		teamToRemove: 0,
+		playerToCreate: {
+			name: '',
+			handle: '',
+			picture: ''
+		},
+		playerToEdit: {
+			index: 0,
+			name: $scope.allPlayers[0].name,
+			handle: $scope.allPlayers[0].handle,
+			picture: $scope.allPlayers[0].picture
+		},
+		playerToRemove: 0
 	};
 
 	$scope.changeTeam = function(index) {
@@ -87,47 +166,21 @@ app.controller('d2tmController', ['$scope', 'defaultPlayers', 'defaultTeams', fu
 		$scope.input.teamToRemove = index;
 	}
 
-	$scope.removeTeam = function() {
-		$scope.allTeams.splice($scope.input.teamToRemove, 1);
-		$scope.input.teamToRemove = 0;
-	}
-
-	$scope.editTeam = function() {
-		$scope.allTeams[$scope.input.teamToEdit.index].name = $scope.input.teamToEdit.name;
-		$scope.allTeams[$scope.input.teamToEdit.index].logo = $scope.input.teamToEdit.logo;
-	}
-
-	//Team Information
-	$scope.input = {
-		name:'',
-		logo:'',
-		teamToEdit: {
-			index: 0,
-			name: $scope.allTeams[0].name,
-			logo: $scope.allTeams[0].logo
-		},
-		teamToRemove: 0
-	};
-	$scope.createTeam = function() {
-		var team = {
-			name: $scope.input.name,
-			logo: $scope.input.logo,
-			roster: []
-		};
-
-		for(k=0; k<5; k++) {
-			team.roster.push({
-				name: '',
-				handle: '',
-				picture: '',
-				dummy: k+1
-			});
+	$scope.selectPlayerToEdit = function(idx) {
+		$scope.input.playerToEdit = {
+			index: idx,
+			name: $scope.allPlayers[idx].name,
+			handle: $scope.allPlayers[idx].handle,
+			picture: $scope.allPlayers[idx].picture
 		}
+	}
 
-		$scope.allTeams.push(team);
+	$scope.selectPlayerToRemove = function(index) {
+		$scope.input.playerToRemove = index;
+	}
 
-		$scope.input = {name:'',logo:''};
-	};
+	
+	
 
 	$scope.logoURL = function(logo) {
 		if(logo.search('http') > -1) {
@@ -137,6 +190,16 @@ app.controller('d2tmController', ['$scope', 'defaultPlayers', 'defaultTeams', fu
 			return '/d2tm/img/'+logo;
 		}
 	}
+
+
+
+
+
+
+
+
+
+
 	
 	/* --- Drag/Drop --- */
 	$scope.rlIdx = -1;

@@ -108,7 +108,7 @@
 
 						<p>With the post-TI shuffle going on, I thought this would be a fun app to make while learning <a href="http://angularjs.org">AngularJS</a>. Let me know what you think wootasaurus@gmail.com.</p>
 
-						<p>Information was gathered manually and is not guaranteed to be accurate or up-to-date. Most player pictures are from <a href="http://starladder.tv">StarLadder</a>. Team logos are taken from their <a href="http://wiki.teamliquid.net">liquipedia</a> entries. Background art by <a href="entroz.deviantart.com">entroz</a>.</p>
+						<p>Information was gathered manually and is not guaranteed to be accurate or up-to-date. Most player pictures are from <a href="http://starladder.tv">StarLadder</a>. Team logos are taken from their <a href="http://wiki.teamliquid.net">liquipedia</a> entries. Background from <a href="http://thepatternlibrary.com/">the pattern library</a>.</p>
 						
 					</accordion-group>
 
@@ -128,14 +128,14 @@
 							<div class="form-group">
 								<label for="teamName" class="col-sm-2 control-label">Name</label>
 								<div class="col-sm-5">
-									<input type="text" id="teamName" ng-model="input.name" class="form-control"/>
+									<input type="text" id="teamName" ng-model="input.teamToCreate.name" class="form-control"/>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="teamLogo" class="col-sm-2 control-label">Logo (URL)</label>
 								<div class="col-sm-5">
-									<input type="url" id="teamLogo"ng-model="input.logo" class="form-control" />
+									<input type="url" id="teamLogo"ng-model="input.teamtoCreate.logo" class="form-control" />
 								</div>
 							</div>
 
@@ -197,7 +197,7 @@
 						<!-- Remove Team -->
 						<h4><u>Remove Team</u></h4>
 
-						<form name="editTeamForm" class="form-horizontal">
+						<form name="removeTeamForm" class="form-horizontal">
 
 							<div class="form-group">
 								<label for="selectTeam" class="col-sm-2 control-label">Select Team</label>
@@ -225,7 +225,130 @@
 					</accordion-group>
 
 					<!-- Players -->
+					<accordion-group is-open="status.playersOpen">
+							
+						<accordion-heading>
+							Players
+							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.playerInfoOpen, 'glyphicon-chevron-right': !status.playersOpen}"></i>
+						</accordion-heading>
 
+						<!-- Add Player -->
+						<h4><u>Add Player</u></h4>
+
+						<form name="addPlayerForm" class="form-horizontal" >
+
+							<div class="form-group">
+								<label for="playerHandle" class="col-sm-2 control-label">Handle</label>
+								<div class="col-sm-5">
+									<input type="text" id="playerHandle" ng-model="input.playerToCreate.handle" class="form-control"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="playerName" class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-5">
+									<input type="text" id="playerName" ng-model="input.playerToCreate.name" class="form-control"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="playerPicture" class="col-sm-2 control-label">Logo (URL)</label>
+								<div class="col-sm-5">
+									<input type="url" id="playerPicture"ng-model="input.playertoCreate.picture" class="form-control" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-2"></div>
+								<div class="col-sm-5">
+									<button class="btn btn-primary" type="submit" ng-click="createPlayer()">Add</button>
+								</div>
+							</div>
+
+						</form>
+
+						<hr />
+
+						<!-- Edit Player -->
+						<h4><u>Edit Player</u></h4>
+
+						<form name="editPlayerForm" class="form-horizontal" novalidate>
+
+							<div class="form-group">
+								<label for="selectPlayer" class="col-sm-2 control-label">Select Player</label>
+								<div class="btn-group col-sm-5" dropdown is-open="status.selectPlayerToEdit" id="selectPlayer">
+									<button id="selectPlayerBtn" type="button" class="btn btn-default select-player" dropdown-toggle ng-disabled="disabled">
+										{{allPlayers[input.playerToEdit.index].handle}}&nbsp;<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="selectPlayerBtn">
+										<li role="menuitem" ng-repeat="player in allPlayers">
+											<a ng-click="selectPlayerToEdit($index)" href="">{{player.handle}}</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="playerHandle" class="col-sm-2 control-label">Handle</label>
+								<div class="col-sm-5">
+									<input type="text" id="playerHandle" ng-model="input.playerToEdit.handle" class="form-control"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="playerName" class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-5">
+									<input type="text" id="playerName" ng-model="input.playerToEdit.name" class="form-control"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="playerPicture" class="col-sm-2 control-label">Logo (URL)</label>
+								<div class="col-sm-5">
+									<input type="url" id="playerPicture"ng-model="input.playerToEdit.picture" class="form-control" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-2"></div>
+								<div class="col-sm-5">
+									<button class="btn btn-primary" type="submit" ng-click="editPlayer()">Edit</button>
+								</div>
+							</div>
+
+						</form>
+
+						<hr />
+
+						<!-- Remove Player -->
+						<h4><u>Remove Player</u></h4>
+
+						<form name="removePlayerForm" class="form-horizontal">
+
+							<div class="form-group">
+								<label for="selectPlayer" class="col-sm-2 control-label">Select Player</label>
+								<div class="btn-group col-sm-5" dropdown is-open="status.selectPlayerToRemove" id="selectPlayer">
+									<button id="selectPlayerBtn" type="button" class="btn btn-default select-player" dropdown-toggle ng-disabled="disabled">
+										{{allPlayers[input.playerToRemove].handle}}&nbsp;<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="selectPlayerBtn">
+										<li role="menuitem" ng-repeat="player in allPlayers">
+											<a ng-click="selectPlayerToRemove($index)" href="">{{player.handle}}</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-2"></div>
+								<div class="col-sm-5">
+									<button class="btn btn-primary" type="submit" ng-click="removePlayer()">Remove</button>
+								</div>
+							</div>
+
+						</form>
+
+					</accordion-group>
 					
 					<!-- Player Selection -->
 					<accordion-group is-open="status.playerSelectOpen">
