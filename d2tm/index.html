@@ -366,10 +366,23 @@
 							Free Agents
 							<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.playerSelectOpen, 'glyphicon-chevron-right': !status.playerSelectOpen}"></i>
 						</accordion-heading>
+
+						<div>
+							<form name="playerSearch" class="form-horizontal">
+								<div class="form-group">
+									<label for="searchText" class="col-sm-1 control-label">Search</label>
+									<div class="col-sm-3">
+										<input id="searchText" type="search" ng-model="input.search" class="form-control"/>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<hr />
 							
 						<div class="playerSelection" ng-drop="true" ng-drop-success="onDropPS($index, $data,$event)">
 							
-							<div ng-repeat="player in allPlayers | filter: playerSelectionFilter | orderBy: 'handle' "  class="tile well" ng-drag="true" ng-drag-data="player" 
+							<div ng-repeat="player in allPlayers | filter: playerSelectionFilter | filter: input.search | orderBy: 'handle' "  class="tile well" ng-drag="true" ng-drag-data="player" 
 									 data-allow-transform="false" ng-drag-success="onDragPS($index,$data,$event)">
 								
 								<div class="pic" >

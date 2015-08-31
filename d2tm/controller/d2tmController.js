@@ -56,7 +56,7 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 		loadDefaults();
 		$scope.$storage.allPlayers = $scope.allPlayers;
 		$scope.$storage.allTeams = $scope.allTeams;
-		//$scope.$storage.saved = true;
+		$scope.$storage.saved = true;
 	}
 
 	//the team
@@ -158,7 +158,8 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 			picture: $scope.allPlayers[5].picture,
 			confirmed: $scope.allPlayers[5].confirmed
 		},
-		playerToRemove: 5
+		playerToRemove: 5,
+		search: ''
 	};
 
 	//CRUD
