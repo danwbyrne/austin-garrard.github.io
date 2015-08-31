@@ -101,6 +101,7 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 		$scope.allPlayers[$scope.input.playerToEdit.index].name = $scope.input.playerToEdit.name;
 		$scope.allPlayers[$scope.input.playerToEdit.index].handle = $scope.input.playerToEdit.handle;
 		$scope.allPlayers[$scope.input.playerToEdit.index].logo = $scope.input.playerToEdit.logo;
+		$scope.allPlayers[$scope.input.playerToEdit.index].logo = $scope.input.playerToEdit.confirmed;
 	}
 
 	$scope.removePlayer = function() {
@@ -152,11 +153,12 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 		},
 		playerToEdit: {
 			index: 0,
-			name: $scope.allPlayers[0].name,
-			handle: $scope.allPlayers[0].handle,
-			picture: $scope.allPlayers[0].picture
+			name: $scope.allPlayers[5].name,
+			handle: $scope.allPlayers[5].handle,
+			picture: $scope.allPlayers[5].picture,
+			confirmed: $scope.allPlayers[5].confirmed
 		},
-		playerToRemove: 0
+		playerToRemove: 5
 	};
 
 	//CRUD
@@ -164,29 +166,30 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 		$scope.team = $scope.allTeams[index];
 	};
 
-	$scope.selectTeamToEdit = function(idx) {
+	$scope.selectTeamToEdit = function(team) {
 		$scope.input.teamToEdit = {
-			index: idx,
-			name: $scope.allTeams[idx].name,
-			logo: $scope.allTeams[idx].logo
+			index: $scope.allTeams.indexOf(team),
+			name: team.name,
+			logo: team.logo
 		};
 	}
 
-	$scope.selectTeamToRemove = function(index) {
-		$scope.input.teamToRemove = index;
+	$scope.selectTeamToRemove = function(team) {
+		$scope.input.teamToRemove = $scope.allTeams.indexOf(team);
 	}
 
-	$scope.selectPlayerToEdit = function(idx) {
+	$scope.selectPlayerToEdit = function(player) {
 		$scope.input.playerToEdit = {
-			index: idx,
-			name: $scope.allPlayers[idx].name,
-			handle: $scope.allPlayers[idx].handle,
-			picture: $scope.allPlayers[idx].picture
+			index: $scope.allPlayers.indexOf(player),
+			name: player.name,
+			handle: player.handle,
+			picture: player.picture,
+			confirmed: player.confirmed
 		}
 	}
 
-	$scope.selectPlayerToRemove = function(index) {
-		$scope.input.playerToRemove = index;
+	$scope.selectPlayerToRemove = function(player) {
+		$scope.input.playerToRemove = $scope.allPlayers.indexOf(player);
 	}
 
 	//confirm delete

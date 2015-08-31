@@ -160,12 +160,12 @@
 							<div class="form-group">
 								<label for="selectTeam" class="col-sm-2 control-label">Select Team</label>
 								<div class="btn-group col-sm-5" dropdown is-open="status.selectTeamToEdit" id="selectTeam">
-									<button id="selectTeamBtn" type="button" class="btn btn-default select-team" dropdown-toggle ng-disabled="disabled">
+									<button id="selectTeamBtn" type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
 										{{allTeams[input.teamToEdit.index].name}}&nbsp;<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectTeamBtn">
 										<li role="menuitem" ng-repeat="team in allTeams | orderBy: 'name'">
-											<a ng-click="selectTeamToEdit($index)" href="">{{team.name}}</a>
+											<a ng-click="selectTeamToEdit(team)" href="">{{team.name}}</a>
 										</li>
 									</ul>
 								</div>
@@ -204,12 +204,12 @@
 							<div class="form-group">
 								<label for="selectTeam" class="col-sm-2 control-label">Select Team</label>
 								<div class="btn-group col-sm-5" dropdown is-open="status.selectTeamToRemove" id="selectTeam">
-									<button id="selectTeamBtn" type="button" class="btn btn-default select-team" dropdown-toggle ng-disabled="disabled">
+									<button id="selectTeamBtn" type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
 										{{allTeams[input.teamToRemove].name}}&nbsp;<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectTeamBtn">
 										<li role="menuitem" ng-repeat="team in allTeams | orderBy: 'name'">
-											<a ng-click="selectTeamToRemove($index)" href="">{{team.name}}</a>
+											<a ng-click="selectTeamToRemove(team)" href="">{{team.name}}</a>
 										</li>
 									</ul>
 								</div>
@@ -284,7 +284,7 @@
 									</button>
 									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectPlayerBtn">
 										<li role="menuitem" ng-repeat="player in allPlayers | filter: playersFilter | orderBy: 'handle'">
-											<a ng-click="selectPlayerToEdit($index)" href="">{{player.handle}}</a>
+											<a ng-click="selectPlayerToEdit(player)" href="">{{player.handle}}</a>
 										</li>
 									</ul>
 								</div>
@@ -311,6 +311,8 @@
 								</div>
 							</div>
 
+							
+
 							<div class="form-group">
 								<div class="col-sm-2"></div>
 								<div class="col-sm-5">
@@ -335,7 +337,7 @@
 									</button>
 									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectPlayerBtn">
 										<li role="menuitem" ng-repeat="player in allPlayers | filter: playersFilter | orderBy: 'handle'">
-											<a ng-click="selectPlayerToRemove($index)" href="">{{player.handle}}</a>
+											<a ng-click="selectPlayerToRemove(player)" href="">{{player.handle}}</a>
 										</li>
 									</ul>
 								</div>
