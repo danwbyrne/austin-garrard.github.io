@@ -1,6 +1,12 @@
 app.factory("defaultTeams", function() {
 	return [
 		{
+			name: 'My Team',
+			logo: 'https://raw.github.com/paralin/Dota2/master/Resources/Misc/dota2_logo.jpg',
+			confirmed: [],
+			rumored: ['Dendi']
+		},
+		{
 			name: 'Evil Genuises',
 			logo: '/d2tm/img/logo_eg.png',
 			confirmed: ['Arteezy', 'SumaiL', 'UNiVeRsE', 'Fear', 'ppd'],
