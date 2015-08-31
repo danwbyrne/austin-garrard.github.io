@@ -23,8 +23,8 @@ body {
 
 /* leftContainer */
 .teamLogo {
-	width: auto;
-	height: 200px;
+	width: 100%;
+	height: auto;
 	margin-left: auto !important;
 	margin-right: auto !important;
 }

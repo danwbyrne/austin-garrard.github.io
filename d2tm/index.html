@@ -39,7 +39,7 @@
 			<div class="leftContainer panel panel-default">
 
 				<div class="btn-group " dropdown is-open="status.teamDropdownOpen">
-			      <button id="single-button" type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled">
+			      <button id="single-button" type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
 			        Select Team &nbsp;<span class="caret"></span>
 			      </button>
 			      <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
@@ -49,12 +49,14 @@
 			      </ul>
 			    </div>
 
-				<div class="teamLogo">
-					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
+			    <hr />
+
+			    <div class="teamName">
+					{{team.name}}
 				</div>
 
-				<div class="teamName">
-					{{team.name}}
+				<div class="teamLogo">
+					<img ng-src="{{team.logo}}" ng-if="team.logo!=''" />
 				</div>
 
 				<div class="rosterList" >
@@ -160,7 +162,7 @@
 							<div class="form-group">
 								<label for="selectTeam" class="col-sm-2 control-label">Select Team</label>
 								<div class="btn-group col-sm-5" dropdown is-open="status.selectTeamToEdit" id="selectTeam">
-									<button id="selectTeamBtn" type="button" class="btn btn-success" dropdown-toggle ng-disabled="disabled">
+									<button id="selectTeamBtn" type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
 										{{allTeams[input.teamToEdit.index].name}}&nbsp;<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectTeamBtn">
@@ -204,7 +206,7 @@
 							<div class="form-group">
 								<label for="selectTeam" class="col-sm-2 control-label">Select Team</label>
 								<div class="btn-group col-sm-5" dropdown is-open="status.selectTeamToRemove" id="selectTeam">
-									<button id="selectTeamBtn" type="button" class="btn btn-success" dropdown-toggle ng-disabled="disabled">
+									<button id="selectTeamBtn" type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
 										{{allTeams[input.teamToRemove].name}}&nbsp;<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectTeamBtn">
@@ -279,7 +281,7 @@
 							<div class="form-group">
 								<label for="selectPlayer" class="col-sm-2 control-label">Select Player</label>
 								<div class="btn-group col-sm-5" dropdown is-open="status.selectPlayerToEdit" id="selectPlayer">
-									<button id="selectPlayerBtn" type="button" class="btn btn-success" dropdown-toggle ng-disabled="disabled">
+									<button id="selectPlayerBtn" type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
 										{{allPlayers[input.playerToEdit.index].handle}}&nbsp;<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectPlayerBtn">
@@ -337,7 +339,7 @@
 							<div class="form-group">
 								<label for="selectPlayer" class="col-sm-2 control-label">Select Player</label>
 								<div class="btn-group col-sm-5" dropdown is-open="status.selectPlayerToRemove" id="selectPlayer">
-									<button id="selectPlayerBtn" type="button" class="btn btn-success" dropdown-toggle ng-disabled="disabled">
+									<button id="selectPlayerBtn" type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
 										{{allPlayers[input.playerToRemove].handle}}&nbsp;<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="selectPlayerBtn">
