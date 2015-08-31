@@ -101,7 +101,7 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 		$scope.allPlayers[$scope.input.playerToEdit.index].name = $scope.input.playerToEdit.name;
 		$scope.allPlayers[$scope.input.playerToEdit.index].handle = $scope.input.playerToEdit.handle;
 		$scope.allPlayers[$scope.input.playerToEdit.index].logo = $scope.input.playerToEdit.logo;
-		$scope.allPlayers[$scope.input.playerToEdit.index].logo = $scope.input.playerToEdit.confirmed;
+		$scope.allPlayers[$scope.input.playerToEdit.index].confirmed = $scope.input.playerToEdit.confirmed;
 	}
 
 	$scope.removePlayer = function() {
@@ -152,7 +152,7 @@ app.controller('d2tmController', ['$scope', '$modal', '$localStorage', 'defaultP
 			picture: ''
 		},
 		playerToEdit: {
-			index: 0,
+			index: 5,
 			name: $scope.allPlayers[5].name,
 			handle: $scope.allPlayers[5].handle,
 			picture: $scope.allPlayers[5].picture,
