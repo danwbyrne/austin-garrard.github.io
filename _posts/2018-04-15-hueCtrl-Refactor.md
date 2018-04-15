@@ -19,7 +19,7 @@ In a similar manner to how I wrote the original program I got a hair up my ass t
 
 	Abandoned an old phillips hue bridge library. While I tried to use the 3.x.x version of the library originally
 	I immediately had issues with it and decided to rewrite for the uses that I need. This additionally gives me 
-	more experience working with APIs directly which I have desperately need.
+	more experience working with APIs directly which I have desperately needed.
 
 Going forward on this project I am going to implement some threading to optimize the sync between light and screen, as well as a GUI for setup and location based capturing.
 
