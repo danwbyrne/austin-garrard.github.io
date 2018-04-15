@@ -4,7 +4,8 @@ title: "Hue Control Refactor"
 description: "The story of my 8 hour coding spree"
 mydate: "April 15th, 2018"
 ---
-<a href="https://github.com/danwbyrne/hueCtrl">
+
+<a href="https://github.com/danwbyrne/hueCtrl">hueCtrl
 
 In a spurt of the moment decision I decided to revisit an old program of mine called hueCtrl. When I originally wrote this in during a 8+ hour code fest during my sophomore year of college you could almost smell the Data Structures and Algorithms course in my work. My python classes looked like straight rips from a C++ Header file and I overcomplicated issues that I didn't need to. The program was clunky, lagged constantly, and was not well optimized AT ALL.
 
