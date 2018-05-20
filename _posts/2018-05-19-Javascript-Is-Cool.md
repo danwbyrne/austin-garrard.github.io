@@ -1,8 +1,8 @@
 ---
 layout: blog
-title: "Hue Control Refactor"
-description: "The story of my 8 hour coding spree"
-mydate: "April 15th, 2018"
+title: "JSX You Crazy"
+description: "I Got a Job and I'm Panic Coding"
+mydate: "May 19th, 2018"
 ---
 <a href="https://github.com/danwbyrne/socket-relay-extension">Socket Relay extension
 <a href="https://github.com/danwbyrne/blobber2">Blobber 2
