@@ -4,7 +4,7 @@ title: "JSX You Crazy"
 description: "I Got a Job and I'm Panic Coding"
 mydate: "May 19th, 2018"
 ---
-<a href="https://github.com/danwbyrne/socket-relay-extension">Socket Relay extension
+<a href="https://github.com/danwbyrne/socket-relay-extension">Socket Relay extension\n
 <a href="https://github.com/danwbyrne/blobber2">Blobber 2
 
 Javascript is super lit. Every day is interesting for me right now because I am learning so much. Some stream of thought things I like about it in particular right now are: yarn is sick, JSX is crazy, React is ... interesting, create-react-app is crazy convenient.
